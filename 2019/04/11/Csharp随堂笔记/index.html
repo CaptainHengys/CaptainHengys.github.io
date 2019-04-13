@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="C#,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="一定要加油">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="“C#中的传递”ref,out,params">
+<meta name="keywords" content="C#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#随堂笔记1">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/Csharp随堂笔记/index.html">
 <meta property="og:site_name" content="一定要加油">
+<meta property="og:description" content="“C#中的传递”ref,out,params">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-13T04:43:11.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一定要加油">
+<meta name="twitter:title" content="C#随堂笔记1">
+<meta name="twitter:description" content="“C#中的传递”ref,out,params">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/11/Csharp随堂笔记/">
 
 
 
 
 
-  <title>一定要加油</title>
+  <title>C#随堂笔记1 | 一定要加油</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,9 +273,9 @@ function setSidebarMarginTop (headerOffset) {
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -301,9 +305,7 @@ function setSidebarMarginTop (headerOffset) {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/11/Csharp随堂笔记/" itemprop="url">C#随堂笔记1</a></h1>
+          <h1 class="post-title" itemprop="name headline">C#随堂笔记1</h1>
         
 
         <div class="post-meta">
@@ -406,16 +408,34 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        
-          <h2 id="“C-中的传递”"><a href="#“C-中的传递”" class="headerlink" title="“C#中的传递”"></a>“C#中的传递”</h2><h4 id="ref-out-params"><a href="#ref-out-params" class="headerlink" title="ref,out,params"></a>ref,out,params</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/11/Csharp随堂笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <h2 id="“C-中的传递”"><a href="#“C-中的传递”" class="headerlink" title="“C#中的传递”"></a>“C#中的传递”</h2><h4 id="ref-out-params"><a href="#ref-out-params" class="headerlink" title="ref,out,params"></a>ref,out,params</h4><a id="more"></a>
+<h3 id="ref-out-的区别："><a href="#ref-out-的区别：" class="headerlink" title="ref ,out 的区别："></a>ref ,out 的区别：</h3><p>ref和out的区别,在C#中，既可以通过值也可以通过引用传递参数。通过引用传递参数允许函数成员更改参数的值，并保持该更改。若要通过引用传递参数， 可使用ref或out关键字。ref和out这两个关键字都能够提供相似的功效，其作用也很像C中的指针变量。它们的区别是：</p>
+<p>1、使用ref型参数时，传入的参数必须先被初始化。对out而言，必须在方法中对其完成初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class RefExample</span><br><span class="line">&#123;</span><br><span class="line">    static void Method(ref int i)</span><br><span class="line">    &#123;</span><br><span class="line">        i = 44;</span><br><span class="line">    &#125; </span><br><span class="line">    static void Main()</span><br><span class="line">    &#123;</span><br><span class="line">        int val = 0;</span><br><span class="line">        Method(ref val);</span><br><span class="line">        // val is now 44</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2、使用ref和out时，在方法的参数和执行方法时，都要加Ref或Out关键字。以满足匹配。</p>
+<p>3、out适合用在需要return多个返回值的地方，而ref则用在需要被调用的方法修改调用者的引用的时候。</p>
+<p>out</p>
+<p>当希望方法返回多个值时，声明 out 方法非常有用。使用 out 参数的方法仍然可以返回一个值。一个方法可以有一个以上的 out 参数。</p>
+<p><a href="https://www.cnblogs.com/sunliyuan/p/5999045.html" target="_blank" rel="noopener">ref,out</a></p>
+<h3 id="params"><a href="#params" class="headerlink" title="params"></a>params</h3><p>若实参是数组则按引用传递，若实参是变量或表达式则按值传递。</p>
+<p><a href="https://www.cnblogs.com/maowp/p/8134342.html" target="_blank" rel="noopener">params</a></p>
+<h2 id="“C-调用父类方法”"><a href="#“C-调用父类方法”" class="headerlink" title="“C#调用父类方法”"></a>“C#调用父类方法”</h2><p>base关键字</p>
+<h2 id="“C-继承”"><a href="#“C-继承”" class="headerlink" title="“C#继承”"></a>“C#继承”</h2><p>C#继承用冒号:</p>
+<h2 id="“多态：子类对父类方法的覆盖”"><a href="#“多态：子类对父类方法的覆盖”" class="headerlink" title="“多态：子类对父类方法的覆盖”"></a>“多态：子类对父类方法的覆盖”</h2><h3 id="“覆盖”"><a href="#“覆盖”" class="headerlink" title="“覆盖”"></a>“覆盖”</h3><p>覆盖只对派生类和派生类的派生类有效，对基类无效</p>
+<p>基类的方法必须声明为virtual，才表示该方法或属性可以被覆盖<br>其实没有virtual覆盖一下也是可以的，但是并不强制在派生类中一定要进行覆盖（override）</p>
+<p>覆盖时派生类的方法必须声明为override</p>
+<p>覆盖之后，还可以通过base.方法名（）继续调用父类的方法，不加base就调用自身覆盖过的方法</p>
+<h3 id="“new隐藏基类方法”"><a href="#“new隐藏基类方法”" class="headerlink" title="“new隐藏基类方法”"></a>“new隐藏基类方法”</h3><p>本质也是覆盖，基类的方法必须声明为virtual，才表示该方法或属性可以被覆盖，如果基类没有virtual，需要在派生类中重写该方法时，可以用new隐藏基类方法</p>
+<p>如果在子类中定义了一个与父类完全相同的方法，则子类的方法就会隐藏父类的方法。编译时也会给出一个警告：要求在同名的派生类方法前加上关键字new。</p>
+<p>父类代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Person</span><br><span class="line">    &#123;</span><br><span class="line">        public void sayHello()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(&quot;你好，我是人类&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>子类代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Student : Person</span><br><span class="line">    &#123;</span><br><span class="line">        public new void sayHello()</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(&quot;你好，我是学生&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="其实上面的覆盖按照java风格也可以处理，不过系统会提示一个警告"><a href="#其实上面的覆盖按照java风格也可以处理，不过系统会提示一个警告" class="headerlink" title="其实上面的覆盖按照java风格也可以处理，不过系统会提示一个警告"></a>其实上面的覆盖按照java风格也可以处理，不过系统会提示一个警告</h3><h2 id="“抽象类与封闭类”"><a href="#“抽象类与封闭类”" class="headerlink" title="“抽象类与封闭类”"></a>“抽象类与封闭类”</h2><p>抽象类：使用abstract</p>
+<p>封闭类:不能被其他继承，用sealed关键字声明的类，其实就是java中的final</p>
+<h2 id="“接口”"><a href="#“接口”" class="headerlink" title="“接口”"></a>“接口”</h2><p>和java一样，只是C#中仍然使用”:”继承接口</p>
+<h2 id="“委托与事件”"><a href="#“委托与事件”" class="headerlink" title="“委托与事件”"></a>“委托与事件”</h2><p>委托与事件两个概念需要搭配在一起来理解，他们配合起来协同工作</p>
+
       
     </div>
     
@@ -430,191 +450,37 @@ function setSidebarMarginTop (headerOffset) {
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/java-io/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="hengxiaoyudashan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一定要加油">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/java-io/" itemprop="url">java文件读写操作的一个简单例子</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T19:55:59+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i>
+ C#</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  389
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h5 id="java文件读写操作的一个简单事例"><a href="#java文件读写操作的一个简单事例" class="headerlink" title="java文件读写操作的一个简单事例"></a>java文件读写操作的一个简单事例</h5><h5 id="一些简单的读写操作"><a href="#一些简单的读写操作" class="headerlink" title="一些简单的读写操作"></a>一些简单的读写操作</h5>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/02/java-io/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/02/java-io/" rel="next" title="java文件读写操作的一个简单例子">
+                <i class="fa fa-chevron-left"></i> java文件读写操作的一个简单例子
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -624,10 +490,11 @@ function setSidebarMarginTop (headerOffset) {
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -635,6 +502,10 @@ function setSidebarMarginTop (headerOffset) {
 
 
           
+
+  
+
+
 
         </div>
         
@@ -655,8 +526,17 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -716,6 +596,22 @@ function setSidebarMarginTop (headerOffset) {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#“C-中的传递”"><span class="nav-number">1.</span> <span class="nav-text">“C#中的传递”</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ref-out-params"><span class="nav-number">1.0.1.</span> <span class="nav-text">ref,out,params</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ref-out-的区别："><span class="nav-number">1.1.</span> <span class="nav-text">ref ,out 的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#params"><span class="nav-number">1.2.</span> <span class="nav-text">params</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#“C-调用父类方法”"><span class="nav-number">2.</span> <span class="nav-text">“C#调用父类方法”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“C-继承”"><span class="nav-number">3.</span> <span class="nav-text">“C#继承”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“多态：子类对父类方法的覆盖”"><span class="nav-number">4.</span> <span class="nav-text">“多态：子类对父类方法的覆盖”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#“覆盖”"><span class="nav-number">4.1.</span> <span class="nav-text">“覆盖”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“new隐藏基类方法”"><span class="nav-number">4.2.</span> <span class="nav-text">“new隐藏基类方法”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其实上面的覆盖按照java风格也可以处理，不过系统会提示一个警告"><span class="nav-number">4.3.</span> <span class="nav-text">其实上面的覆盖按照java风格也可以处理，不过系统会提示一个警告</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“抽象类与封闭类”"><span class="nav-number">5.</span> <span class="nav-text">“抽象类与封闭类”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“接口”"><span class="nav-number">6.</span> <span class="nav-text">“接口”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“委托与事件”"><span class="nav-number">7.</span> <span class="nav-text">“委托与事件”</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -849,6 +745,10 @@ function setSidebarMarginTop (headerOffset) {
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
