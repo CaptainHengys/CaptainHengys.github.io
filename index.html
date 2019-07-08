@@ -582,43 +582,17 @@ function setSidebarMarginTop (headerOffset) {
 
       
         
-          
-            <h2 id="session与cookie粗略介绍"><a href="#session与cookie粗略介绍" class="headerlink" title="session与cookie粗略介绍"></a>session与cookie粗略介绍</h2><p>session存在于服务端，cookie对应于相应的session存在于客户端，cookie（JSESSIONID）–session(SESSIONID)，服务端在相应请求时产生session，再对应生成cookie传送给客户端</p>
-<h2 id="请求过程"><a href="#请求过程" class="headerlink" title="请求过程"></a>请求过程</h2><h3 id="第一次请求："><a href="#第一次请求：" class="headerlink" title="第一次请求："></a>第一次请求：</h3><p>此请求没有JSESSIONID，服务端产生一个session对象,包括用户的账号密码等各种信息，并且生成一个SESSIONID<br>然后产生一个cookie对象，结构为</p>
-<p>cookie（name=JSESSSIONID,value=SESSIONID）</p>
-<p>注：JESSIONID=SESSIONID，JSESSION是tomcat对SESSIONID的别称</p>
-<p>把cookie发送给客户端，这样客户端就有了一个cookie(JSESSIONID)</p>
-<p>服务端准备cookie:</p>
-<p>response.addCookie(Cookie cookie)</p>
-<h2 id="第二次请求："><a href="#第二次请求：" class="headerlink" title="第二次请求："></a>第二次请求：</h2><p>客户端获取cookie:</p>
-<p>request.getCookies();</p>
-<p>拿着cookie去找，如果JSESSIONID=SESSIONID则匹配到</p>
-<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p>session:</p>
-<p>a. session存储在服务端</p>
-<p>b. session是在 同一个用户（客户，浏览器）请求时 共享</p>
-<p>c. 实现机制：第一次客户请求时 产生一个sessionid 并复制给 cookie的jsessionid 然后发给客户端。最终 通过session的sessionid-cookie的jsessionid</p>
-<h3 id="session方法："><a href="#session方法：" class="headerlink" title="session方法："></a>session方法：</h3><p>String getId() :获取sessionId </p>
-<p>boolean isNew() :判断是否是 新用户（第一次访问）</p>
-<p>void invalidate():使session失效  （退出登录、注销）</p>
-<p>void setAttribute();</p>
-<p>Object getAttribute();</p>
-<p>void setMaxInactiveInterval(秒) ：设置最大有效 非活动时间</p>
-<p>int getMaxInactiveInterval():获取最大有效 非活动时间</p>
-<h2 id="Cookie："><a href="#Cookie：" class="headerlink" title="Cookie："></a>Cookie：</h2><p>a.不是内置对象，要使用必须new</p>
-<p>b.但是，如果没有定义（new）一个返回的cookie,服务端会自动生成一个(服务端自动new一个cookie) name=JSESIONID的cookie,但不会new别的cookie  并返回给客户端</p>
-<h3 id="cookie方法"><a href="#cookie方法" class="headerlink" title="cookie方法"></a>cookie方法</h3><p>public Cookie(String name,String value)</p>
-<p>String getName()：获取name</p>
-<p>String getValue():获取value</p>
-<p>void setMaxAge(int expiry);最大有效期 （秒）</p>
-<p>response.addCookie(Cookie cookie)</p>
-<p>request.getCookies();</p>
-<h2 id="session与cookie的区别"><a href="#session与cookie的区别" class="headerlink" title="session与cookie的区别"></a>session与cookie的区别</h2><p>session:内置对象（不需要new），服务端，较安全，Object</p>
-<p>cookie:非内置对象（需要new），客户端，较不安全，String    </p>
-
-          
+          <h2 id="session与cookie粗略介绍"><a href="#session与cookie粗略介绍" class="headerlink" title="session与cookie粗略介绍"></a>session与cookie粗略介绍</h2><p>session存在于服务端，cookie对应于相应的session存在于客户端，cookie（JSESSIONID）–session(SESSIONID)，服务端在相应请求时产生session，再对应生成cookie传送给客户端<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/08/session与cookie/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
