@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##JavaBean刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。 ###JavaBean的作用： 1.减轻的jsp复杂度   2.提高代码复用（以后任何地方的 登录操作，都可以通过调用LoginDao实现） ###JavaBean的定义：JavaBean（就是一个Java类）的定义：满足一下2点 ，就可以称为Java">
+<meta name="description" content="JavaBean刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。">
 <meta name="keywords" content="javaweb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaBean">
 <meta property="og:url" content="http://yoursite.com/2019/07/08/JavaBean/index.html">
 <meta property="og:site_name" content="一定要加油">
-<meta property="og:description" content="##JavaBean刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。 ###JavaBean的作用： 1.减轻的jsp复杂度   2.提高代码复用（以后任何地方的 登录操作，都可以通过调用LoginDao实现） ###JavaBean的定义：JavaBean（就是一个Java类）的定义：满足一下2点 ，就可以称为Java">
+<meta property="og:description" content="JavaBean刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T14:35:26.695Z">
+<meta property="og:updated_time" content="2019-07-08T14:49:47.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaBean">
-<meta name="twitter:description" content="##JavaBean刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。 ###JavaBean的作用： 1.减轻的jsp复杂度   2.提高代码复用（以后任何地方的 登录操作，都可以通过调用LoginDao实现） ###JavaBean的定义：JavaBean（就是一个Java类）的定义：满足一下2点 ，就可以称为Java">
+<meta name="twitter:description" content="JavaBean刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。">
 
 
 
@@ -371,7 +371,7 @@ function setSidebarMarginTop (headerOffset) {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  281
+                  280
                 </span>
               
 
@@ -408,15 +408,14 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <p>##JavaBean<br>刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。</p>
-<p>###JavaBean的作用：</p>
-<p>1.减轻的jsp复杂度  </p>
+        <h2 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h2><p>刚才我们将 jsp中 登录操作的代码  转移到了LoginDao.java；其中LoginDao类 就称之为JavaBean。</p>
+<a id="more"></a>
+<h3 id="JavaBean的作用："><a href="#JavaBean的作用：" class="headerlink" title="JavaBean的作用："></a>JavaBean的作用：</h3><p>1.减轻的jsp复杂度  </p>
 <p>2.提高代码复用（以后任何地方的 登录操作，都可以通过调用LoginDao实现）</p>
-<p>###JavaBean的定义：<br>JavaBean（就是一个Java类）的定义：满足一下2点 ，就可以称为JavaBean</p>
+<h3 id="JavaBean的定义："><a href="#JavaBean的定义：" class="headerlink" title="JavaBean的定义："></a>JavaBean的定义：</h3><p>JavaBean（就是一个Java类）的定义：满足一下2点 ，就可以称为JavaBean</p>
 <p>1.public 修饰的类,public无参构造</p>
 <p>2.所有属性(如果有) 都是private，并且提供set/get(如果boolean 则get 可以替换成is)</p>
-<p>###JavaBean的两类</p>
-<p>a.封装业务逻辑的JavaBean (LoginDao.java封装了登录逻辑)<br>可以将jsp中的JDBC代码，封装到Login.java类中 （Login.java）</p>
+<h3 id="JavaBean的两类"><a href="#JavaBean的两类" class="headerlink" title="JavaBean的两类"></a>JavaBean的两类</h3><p>a.封装业务逻辑的JavaBean (LoginDao.java封装了登录逻辑)<br>可以将jsp中的JDBC代码，封装到Login.java类中 （Login.java）</p>
 <p>b.封装数据的JavaBean   （实体类，Student.java  Person.java  ）        </p>
 <p>封装数据的JavaBean 对应于数据库中的一张表，表中有什么数据，这个类中就应该对应存在什么数据<br>   (Login(name,pwd))</p>
 <p>封装业务逻辑的JavaBean 用于操作一个封装数据的JavaBean，操作传进来的数据 </p>
@@ -512,8 +511,17 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -573,6 +581,22 @@ function setSidebarMarginTop (headerOffset) {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaBean"><span class="nav-number">1.</span> <span class="nav-text">JavaBean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBean的作用："><span class="nav-number">1.1.</span> <span class="nav-text">JavaBean的作用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBean的定义："><span class="nav-number">1.2.</span> <span class="nav-text">JavaBean的定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaBean的两类"><span class="nav-number">1.3.</span> <span class="nav-text">JavaBean的两类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
