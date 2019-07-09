@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="pstmt和stmt###pstmt继承于stmt，且更为优秀，主要介绍pstmt1public interface PreparedStatement extends Statement">
+<meta name="description" content="pstmt和stmtpstmt继承于stmt，且更为优秀，主要介绍pstmt1public interface PreparedStatement extends Statement">
 <meta name="keywords" content="java web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pstmt和stmt">
 <meta property="og:url" content="http://yoursite.com/2019/07/08/pstmt与stmt/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="pstmt和stmt###pstmt继承于stmt，且更为优秀，主要介绍pstmt1public interface PreparedStatement extends Statement">
+<meta property="og:description" content="pstmt和stmtpstmt继承于stmt，且更为优秀，主要介绍pstmt1public interface PreparedStatement extends Statement">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T13:10:45.175Z">
+<meta property="og:updated_time" content="2019-07-09T08:08:47.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pstmt和stmt">
-<meta name="twitter:description" content="pstmt和stmt###pstmt继承于stmt，且更为优秀，主要介绍pstmt1public interface PreparedStatement extends Statement">
+<meta name="twitter:description" content="pstmt和stmtpstmt继承于stmt，且更为优秀，主要介绍pstmt1public interface PreparedStatement extends Statement">
 
 
 
@@ -371,7 +371,7 @@ function setSidebarMarginTop (headerOffset) {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  354
+                  351
                 </span>
               
 
@@ -408,18 +408,15 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <h2 id="pstmt和stmt"><a href="#pstmt和stmt" class="headerlink" title="pstmt和stmt"></a>pstmt和stmt</h2><p>###pstmt继承于stmt，且更为优秀，主要介绍pstmt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface PreparedStatement extends Statement</span><br></pre></td></tr></table></figure></p>
+        <h2 id="pstmt和stmt"><a href="#pstmt和stmt" class="headerlink" title="pstmt和stmt"></a>pstmt和stmt</h2><h3 id="pstmt继承于stmt，且更为优秀，主要介绍pstmt"><a href="#pstmt继承于stmt，且更为优秀，主要介绍pstmt" class="headerlink" title="pstmt继承于stmt，且更为优秀，主要介绍pstmt"></a>pstmt继承于stmt，且更为优秀，主要介绍pstmt</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public interface PreparedStatement extends Statement</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>###pstmt优势所在<br>1.编码简单，避免字符串拼接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pstmt:</span><br><span class="line">String sql =&quot; insert into student(stuno,stuname) values(?,?) &quot; ;</span><br><span class="line">pstmt = connection.prepareStatement(sql);//预编译SQL</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setInt(2,age);</span><br></pre></td></tr></table></figure></p>
+<h3 id="pstmt优势所在"><a href="#pstmt优势所在" class="headerlink" title="pstmt优势所在"></a>pstmt优势所在</h3><p>1.编码简单，避免字符串拼接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pstmt:</span><br><span class="line">String sql =&quot; insert into student(stuno,stuname) values(?,?) &quot; ;</span><br><span class="line">pstmt = connection.prepareStatement(sql);//预编译SQL</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setInt(2,age);</span><br></pre></td></tr></table></figure></p>
 <p>2.预编译提高性能（预编译处详细介绍）<br>3.stmt存在被注入的风险<br>例如登录操作(输入  用户名：任意值 ‘ or 1=1–密码：任意值)<br>可以登陆成功</p>
-<p>###pstmt部分方法</p>
-<p>####executeUpdate();    增删改操作</p>
-<p>####executeQuery();     查询操作<br>此外，赋值操作setXxxx（）；</p>
-<p>###pstmt预编译</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String sql =&quot; insert into student(stuno,stuname) values(?,?) &quot; ;</span><br><span class="line">pstmt = connection.prepareStatement(sql);//预编译SQL</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setInt(2,age);</span><br></pre></td></tr></table></figure>
-<p>####预编译高度提高了性能，因为预编译的存在，预编译只需执行一步<br>for ex:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stmt:</span><br><span class="line">String sql =&quot; insert into student(stuno,stuname) values(&apos;&quot;+name+&quot;&apos;,  &quot;+age+&quot; )    &quot; ;</span><br><span class="line">for(100)</span><br><span class="line">stmt.executeUpdate(sql);</span><br></pre></td></tr></table></figure></p>
+<h3 id="pstmt部分方法"><a href="#pstmt部分方法" class="headerlink" title="pstmt部分方法"></a>pstmt部分方法</h3><h4 id="executeUpdate-增删改操作"><a href="#executeUpdate-增删改操作" class="headerlink" title="executeUpdate();    增删改操作"></a>executeUpdate();    增删改操作</h4><h4 id="executeQuery-查询操作"><a href="#executeQuery-查询操作" class="headerlink" title="executeQuery();     查询操作"></a>executeQuery();     查询操作</h4><p>此外，赋值操作setXxxx（）；</p>
+<h3 id="pstmt预编译"><a href="#pstmt预编译" class="headerlink" title="pstmt预编译"></a>pstmt预编译</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String sql =&quot; insert into student(stuno,stuname) values(?,?) &quot; ;</span><br><span class="line">pstmt = connection.prepareStatement(sql);//预编译SQL</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setInt(2,age);</span><br></pre></td></tr></table></figure>
+<h4 id="预编译高度提高了性能，因为预编译的存在，预编译只需执行一步"><a href="#预编译高度提高了性能，因为预编译的存在，预编译只需执行一步" class="headerlink" title="预编译高度提高了性能，因为预编译的存在，预编译只需执行一步"></a>预编译高度提高了性能，因为预编译的存在，预编译只需执行一步</h4><p>for ex:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">stmt:</span><br><span class="line">String sql =&quot; insert into student(stuno,stuname) values(&apos;&quot;+name+&quot;&apos;,  &quot;+age+&quot; )    &quot; ;</span><br><span class="line">for(100)</span><br><span class="line">stmt.executeUpdate(sql);</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pstmt:</span><br><span class="line">String sql =&quot; insert into student(stuno,stuname) values(?,?) &quot; ;</span><br><span class="line">pstmt = connection.prepareStatement(sql);//预编译SQL</span><br><span class="line">pstmt.setString(1,name);</span><br><span class="line">pstmt.setInt(2,age);</span><br><span class="line">for( 100)&#123;</span><br><span class="line">pstmt.executeUpdate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###pstmt模板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">Class.forName(&quot;具体驱动类&quot;);</span><br><span class="line">Connection conn = DriverManager.getConnection(...);</span><br><span class="line">PreparedStatement pstmt = conn.preparedStatement(&quot;sql语句&quot;);</span><br><span class="line">ResultSet rs = pstmt.executeQuery()</span><br><span class="line">while(rs.next())&#123; rs.getXxx(..) ;&#125;</span><br><span class="line">&#125;catch(ClassNotFoundException e  )&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;catch(SQLException e)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;catch(Exception e)&#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line">	//打开顺序，与关闭顺序相反</span><br><span class="line">	if(rs!=null)rs.close()</span><br><span class="line">	if(stmt!=null) stmt.close();</span><br><span class="line">	if(connection!=null)connection.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="pstmt模板"><a href="#pstmt模板" class="headerlink" title="pstmt模板"></a>pstmt模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">Class.forName(&quot;具体驱动类&quot;);</span><br><span class="line">Connection conn = DriverManager.getConnection(...);</span><br><span class="line">PreparedStatement pstmt = conn.preparedStatement(&quot;sql语句&quot;);</span><br><span class="line">ResultSet rs = pstmt.executeQuery()</span><br><span class="line">while(rs.next())&#123; rs.getXxx(..) ;&#125;</span><br><span class="line">&#125;catch(ClassNotFoundException e  )&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;catch(SQLException e)&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;catch(Exception e)&#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">finally</span><br><span class="line">&#123;</span><br><span class="line">	//打开顺序，与关闭顺序相反</span><br><span class="line">	if(rs!=null)rs.close()</span><br><span class="line">	if(stmt!=null) stmt.close();</span><br><span class="line">	if(connection!=null)connection.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>–jdbc中，除了Class.forName() 抛出ClassNotFoundException，其余方法全部抛SQLException</p>
 
       
@@ -541,7 +538,7 @@ function setSidebarMarginTop (headerOffset) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -596,7 +593,7 @@ function setSidebarMarginTop (headerOffset) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pstmt和stmt"><span class="nav-number">1.</span> <span class="nav-text">pstmt和stmt</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pstmt和stmt"><span class="nav-number">1.</span> <span class="nav-text">pstmt和stmt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pstmt继承于stmt，且更为优秀，主要介绍pstmt"><span class="nav-number">1.1.</span> <span class="nav-text">pstmt继承于stmt，且更为优秀，主要介绍pstmt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pstmt优势所在"><span class="nav-number">1.2.</span> <span class="nav-text">pstmt优势所在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pstmt部分方法"><span class="nav-number">1.3.</span> <span class="nav-text">pstmt部分方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#executeUpdate-增删改操作"><span class="nav-number">1.3.1.</span> <span class="nav-text">executeUpdate();    增删改操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#executeQuery-查询操作"><span class="nav-number">1.3.2.</span> <span class="nav-text">executeQuery();     查询操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pstmt预编译"><span class="nav-number">1.4.</span> <span class="nav-text">pstmt预编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预编译高度提高了性能，因为预编译的存在，预编译只需执行一步"><span class="nav-number">1.4.1.</span> <span class="nav-text">预编译高度提高了性能，因为预编译的存在，预编译只需执行一步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pstmt模板"><span class="nav-number">1.5.</span> <span class="nav-text">pstmt模板</span></a></li></ol></li></ol></div>
             
 
           </div>
