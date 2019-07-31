@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##分页要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束 ###需要的变量数据  数据总数 页面大小：每页显示的数据量 总页数 当前页码 当前页的对象集合（就是这个页里的数据）">
+<meta name="description" content="分页要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束 需要的变量数据 数据总数 页面大小：每页显示的数据量 总页数 当前页码 当前页的对象集合（就是这个页里的数据）">
 <meta name="keywords" content="java web,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分页">
 <meta property="og:url" content="http://yoursite.com/2019/07/26/mysql分页/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="##分页要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束 ###需要的变量数据  数据总数 页面大小：每页显示的数据量 总页数 当前页码 当前页的对象集合（就是这个页里的数据）">
+<meta property="og:description" content="分页要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束 需要的变量数据 数据总数 页面大小：每页显示的数据量 总页数 当前页码 当前页的对象集合（就是这个页里的数据）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T02:41:09.103Z">
+<meta property="og:updated_time" content="2019-07-31T07:36:09.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分页">
-<meta name="twitter:description" content="##分页要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束 ###需要的变量数据  数据总数 页面大小：每页显示的数据量 总页数 当前页码 当前页的对象集合（就是这个页里的数据）">
+<meta name="twitter:description" content="分页要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束 需要的变量数据 数据总数 页面大小：每页显示的数据量 总页数 当前页码 当前页的对象集合（就是这个页里的数据）">
 
 
 
@@ -408,9 +408,8 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <p>##分页<br>要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束</p>
-<p>###需要的变量数据</p>
-<ol>
+        <h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>要实现分页，必须知道  某一页的 数据 从哪里开始 到哪里结束</p>
+<h3 id="需要的变量数据"><a href="#需要的变量数据" class="headerlink" title="需要的变量数据"></a>需要的变量数据</h3><ol>
 <li>数据总数</li>
 <li>页面大小：每页显示的数据量</li>
 <li>总页数</li>
@@ -418,10 +417,9 @@ function setSidebarMarginTop (headerOffset) {
 <li>当前页的对象集合（就是这个页里的数据）</li>
 </ol>
 <a id="more"></a>
-<p>###mysql分页：</p>
-<p>假设每页显示10条数据</p>
+<h3 id="mysql分页："><a href="#mysql分页：" class="headerlink" title="mysql分页："></a>mysql分页：</h3><p>假设每页显示10条数据</p>
 <p><b>mysql: 从0开始计数</b><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">page | start | end</span><br><span class="line">- | :-: | -: </span><br><span class="line">0 | 0 | 9</span><br><span class="line">1 | 10 | 19</span><br><span class="line">2 | 20 | 29</span><br><span class="line">n | n*10 | (n+1)*10-1</span><br></pre></td></tr></table></figure></p>
-<p>####结论：<br>分页：第n页的数据：  第(n-1)<em>10+1条  – 第n</em>10条</p>
+<h4 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h4><p>分页：第n页的数据：  第(n-1)<em>10+1条  – 第n</em>10条</p>
 <p>MYSQL实现分页可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">limit  开始,多少条</span><br></pre></td></tr></table></figure></p>
 <p>第0页: select * from student limit 0,10 ;</p>
 <p>第1页: select * from student limit 10,10 ;</p>
@@ -524,8 +522,17 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -585,6 +592,22 @@ function setSidebarMarginTop (headerOffset) {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分页"><span class="nav-number">1.</span> <span class="nav-text">分页</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要的变量数据"><span class="nav-number">1.1.</span> <span class="nav-text">需要的变量数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql分页："><span class="nav-number">1.2.</span> <span class="nav-text">mysql分页：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结论："><span class="nav-number">1.2.1.</span> <span class="nav-text">结论：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

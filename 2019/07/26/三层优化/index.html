@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##三层优化 ###1. 加入接口建议面向接口开发：先接口-再实现类(在service、dao加入接口)">
+<meta name="description" content="三层优化1. 加入接口建议面向接口开发：先接口-再实现类(在service、dao加入接口)">
 <meta name="keywords" content="javaweb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三层优化">
 <meta property="og:url" content="http://yoursite.com/2019/07/26/三层优化/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="##三层优化 ###1. 加入接口建议面向接口开发：先接口-再实现类(在service、dao加入接口)">
+<meta property="og:description" content="三层优化1. 加入接口建议面向接口开发：先接口-再实现类(在service、dao加入接口)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T01:58:02.034Z">
+<meta property="og:updated_time" content="2019-07-31T07:37:13.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三层优化">
-<meta name="twitter:description" content="##三层优化 ###1. 加入接口建议面向接口开发：先接口-再实现类(在service、dao加入接口)">
+<meta name="twitter:description" content="三层优化1. 加入接口建议面向接口开发：先接口-再实现类(在service、dao加入接口)">
 
 
 
@@ -408,17 +408,15 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <p>##三层优化</p>
-<p>###1. 加入接口<br>建议面向接口开发：先接口-再实现类(在service、dao加入接口)</p>
+        <h2 id="三层优化"><a href="#三层优化" class="headerlink" title="三层优化"></a>三层优化</h2><h3 id="1-加入接口"><a href="#1-加入接口" class="headerlink" title="1. 加入接口"></a>1. 加入接口</h3><p>建议面向接口开发：先接口-再实现类(在service、dao加入接口)</p>
 <a id="more"></a>
-<p>####接口与实现类的命名规范</p>
-<p>接口所在的包：  xxx.service        xx.dao</p>
+<h4 id="接口与实现类的命名规范"><a href="#接口与实现类的命名规范" class="headerlink" title="接口与实现类的命名规范"></a>接口与实现类的命名规范</h4><p>接口所在的包：  xxx.service        xx.dao</p>
 <p>实现类所在的包：xxx.service.impl        xx.dao.impl</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- | Service | Dao </span><br><span class="line">- | :-: | -: </span><br><span class="line">interface | I实体类Service| I实体类Dao</span><br><span class="line">implements | 实体类ServiceImpl | 实体类DaoImpl</span><br></pre></td></tr></table></figure>
 <p>以后使用接口/实现类时，推荐写法：</p>
 <p>接口 x = new 实现类();</p>
 <p>IStudentDao studentDao = new StudentDaoImpl();</p>
-<p>###2. DBUtil通用的数据库帮助类<br>帮助类一般建议写在xx.util包</p>
+<h3 id="2-DBUtil通用的数据库帮助类"><a href="#2-DBUtil通用的数据库帮助类" class="headerlink" title="2. DBUtil通用的数据库帮助类"></a>2. DBUtil通用的数据库帮助类</h3><p>帮助类一般建议写在xx.util包</p>
 <p>dao和DBUtil的区别：</p>
 <ul>
 <li><p>dao 是处理特定 类的 数据库操作类</p>
@@ -521,8 +519,17 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -582,6 +589,22 @@ function setSidebarMarginTop (headerOffset) {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#三层优化"><span class="nav-number">1.</span> <span class="nav-text">三层优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-加入接口"><span class="nav-number">1.1.</span> <span class="nav-text">1. 加入接口</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接口与实现类的命名规范"><span class="nav-number">1.1.1.</span> <span class="nav-text">接口与实现类的命名规范</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-DBUtil通用的数据库帮助类"><span class="nav-number">1.2.</span> <span class="nav-text">2. DBUtil通用的数据库帮助类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##JSTL ###JSTL：比EL更加强大  需要引入2个jar ：jstl.jar   standard.jar  需要引入tablib  :&amp;lt;%@ taglib uri=”http://java.sun.com/jsp/jstl/core&amp;quot; prefix=”c” %&amp;gt;       其中prefix=”c” :前缀">
+<meta name="description" content="JSTLJSTL：比EL更加强大 需要引入2个jar ：jstl.jar   standard.jar  需要引入tablib  :&amp;lt;%@ taglib uri=”http://java.sun.com/jsp/jstl/core&amp;quot; prefix=”c” %&amp;gt;       其中prefix=”c” :前缀">
 <meta name="keywords" content="java web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSTL">
 <meta property="og:url" content="http://yoursite.com/2019/07/30/JSTLmd/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="##JSTL ###JSTL：比EL更加强大  需要引入2个jar ：jstl.jar   standard.jar  需要引入tablib  :&amp;lt;%@ taglib uri=”http://java.sun.com/jsp/jstl/core&amp;quot; prefix=”c” %&amp;gt;       其中prefix=”c” :前缀">
+<meta property="og:description" content="JSTLJSTL：比EL更加强大 需要引入2个jar ：jstl.jar   standard.jar  需要引入tablib  :&amp;lt;%@ taglib uri=”http://java.sun.com/jsp/jstl/core&amp;quot; prefix=”c” %&amp;gt;       其中prefix=”c” :前缀">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-31T07:01:09.429Z">
+<meta property="og:updated_time" content="2019-07-31T07:36:35.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSTL">
-<meta name="twitter:description" content="##JSTL ###JSTL：比EL更加强大  需要引入2个jar ：jstl.jar   standard.jar  需要引入tablib  :&amp;lt;%@ taglib uri=”http://java.sun.com/jsp/jstl/core&amp;quot; prefix=”c” %&amp;gt;       其中prefix=”c” :前缀">
+<meta name="twitter:description" content="JSTLJSTL：比EL更加强大 需要引入2个jar ：jstl.jar   standard.jar  需要引入tablib  :&amp;lt;%@ taglib uri=”http://java.sun.com/jsp/jstl/core&amp;quot; prefix=”c” %&amp;gt;       其中prefix=”c” :前缀">
 
 
 
@@ -371,7 +371,7 @@ function setSidebarMarginTop (headerOffset) {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  689
+                  688
                 </span>
               
 
@@ -408,38 +408,33 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <p>##JSTL</p>
-<p>###JSTL：比EL更加强大</p>
-<ul>
+        <h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><h3 id="JSTL：比EL更加强大"><a href="#JSTL：比EL更加强大" class="headerlink" title="JSTL：比EL更加强大"></a>JSTL：比EL更加强大</h3><ul>
 <li><p>需要引入2个jar ：jstl.jar   standard.jar</p>
 </li>
 <li><p>需要引入tablib  :<br>&lt;%@ taglib uri=”<a href="http://java.sun.com/jsp/jstl/core&quot;" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core&quot;</a> prefix=”c” %&gt;    </p>
 </li>
 </ul>
 <p>其中prefix=”c” :前缀<br><a id="more"></a></p>
-<p>###核心标签库：  通用标签库、条件标签库  迭代标签库</p>
-<p>####通用标签库<br>&lt;c:set&gt;赋值</p>
+<h3 id="核心标签库：-通用标签库、条件标签库-迭代标签库"><a href="#核心标签库：-通用标签库、条件标签库-迭代标签库" class="headerlink" title="核心标签库：  通用标签库、条件标签库  迭代标签库"></a>核心标签库：  通用标签库、条件标签库  迭代标签库</h3><h4 id="通用标签库"><a href="#通用标签库" class="headerlink" title="通用标签库"></a>通用标签库</h4><p>&lt;c:set&gt;赋值</p>
 <h5 id="在某个作用域之中（4个范围对象），给某个变量赋值"><a href="#在某个作用域之中（4个范围对象），给某个变量赋值" class="headerlink" title="在某个作用域之中（4个范围对象），给某个变量赋值"></a>在某个作用域之中（4个范围对象），给某个变量赋值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">request.setAttribute(&quot;name&quot;, &quot;zhangsan&quot;) ;</span><br><span class="line">-%&gt;</span><br></pre></td></tr></table></figure>
 <p>等价于</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set var=&quot;name&quot;    value=&quot;zhangsan&quot;   scope=&quot;request&quot;/&gt;</span><br><span class="line">$&#123;requestScope.name &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set var=&quot;变量名&quot;    value=&quot;变量值&quot;   scope=&quot;4个范围对象的作用域&quot;/&gt;</span><br></pre></td></tr></table></figure>
 <p>四个范围对象：pagecontent,request,session,application</p>
-<p>#####给普通对象赋值<br>在某个作用域之中（4个范围对象），给某个对象的属性复制 （此种写法，不能指定<b>scope属性</b>）</p>
+<h5 id="给普通对象赋值"><a href="#给普通对象赋值" class="headerlink" title="给普通对象赋值"></a>给普通对象赋值</h5><p>在某个作用域之中（4个范围对象），给某个对象的属性复制 （此种写法，不能指定<b>scope属性</b>）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set target=&quot;$&#123;requestScope.student&#125;&quot; property=&quot;sname&quot;  value=&quot;zxs&quot; /&gt;</span><br></pre></td></tr></table></figure>
-<p>#####给map对象赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set target=&quot;$&#123;requestScope.countries&#125;&quot; property=&quot;cn&quot;  value=&quot;中国&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set target=&quot;对象&quot; property=&quot;对象的属性&quot;  value=&quot;赋值&quot; /&gt;</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">注意 </span><br><span class="line"></span><br><span class="line">&lt;b&gt;&lt;c:set&gt;可以给不存在的变量赋值 （但不能给不存在的对象赋值）</span><br><span class="line">&lt;/b&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###&lt;c:out&gt;  ：显示</span><br><span class="line"></span><br><span class="line">true:</span><br></pre></td></tr></table></figure>
+<h5 id="给map对象赋值"><a href="#给map对象赋值" class="headerlink" title="给map对象赋值"></a>给map对象赋值</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set target=&quot;$&#123;requestScope.countries&#125;&quot; property=&quot;cn&quot;  value=&quot;中国&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set target=&quot;对象&quot; property=&quot;对象的属性&quot;  value=&quot;赋值&quot; /&gt;</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">注意 </span><br><span class="line"></span><br><span class="line">&lt;b&gt;&lt;c:set&gt;可以给不存在的变量赋值 （但不能给不存在的对象赋值）</span><br><span class="line">&lt;/b&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### &lt;c:out&gt;  ：显示</span><br><span class="line"></span><br><span class="line">true:</span><br></pre></td></tr></table></figure>
 <p>&lt;c:out value=’<a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a>‘ default=”当value为空的，显示的默认值” escapeXml=”true” /&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">false：</span><br></pre></td></tr></table></figure></p>
-<p>&lt;c:out value=’<a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a>‘ escapeXml=”false” /&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">		</span><br><span class="line">###&lt;c:remove &gt;：删除属性</span><br><span class="line">&lt;c:remove var=&quot;a&quot; scope=&quot;request&quot;/&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###选择：</span><br><span class="line">if(boolean)</span><br><span class="line">####单重选择</span><br></pre></td></tr></table></figure></p>
+<p>&lt;c:out value=’<a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a>‘ escapeXml=”false” /&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">		</span><br><span class="line">### &lt;c:remove &gt;：删除属性</span><br><span class="line">&lt;c:remove var=&quot;a&quot; scope=&quot;request&quot;/&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 选择：</span><br><span class="line">if(boolean)</span><br><span class="line">#### 单重选择</span><br></pre></td></tr></table></figure></p>
 <p>&lt;c:if test=”” &gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">test里是el,所有判断都写在el里，结果会赋值给result，存在了request域中</span><br></pre></td></tr></table></figure></p>
-<p>&lt;c:if test=”${10&gt;2}” var=”result” scope=”request”&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">####多重选择</span><br><span class="line">if else if... esle if... else  /switch</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">	&lt;c:when test=&quot;...&quot;&gt;   &lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=&quot;...&quot;&gt;   &lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=&quot;...&quot;&gt;   &lt;/c:when&gt;</span><br><span class="line">	&lt;c:otherwise&gt;   &lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure></p>
+<p>&lt;c:if test=”${10&gt;2}” var=”result” scope=”request”&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#### 多重选择</span><br><span class="line">if else if... esle if... else  /switch</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">	&lt;c:when test=&quot;...&quot;&gt;   &lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=&quot;...&quot;&gt;   &lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=&quot;...&quot;&gt;   &lt;/c:when&gt;</span><br><span class="line">	&lt;c:otherwise&gt;   &lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><figcaption><span>test</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码</span><br><span class="line">&lt;/c:when&gt;</span><br></pre></td></tr></table></figure>
 <p>在使用 test=”” 一定要注意后面是否有空格<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test=&quot;$&#123;10&gt;2 &#125;&quot;   true</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test=&quot;$&#123;10&gt;2 &#125; &quot;  非true</span><br></pre></td></tr></table></figure>
 <p>因为这时空格也算做了字符，<br>boolean值和空格组合成字符串，然后判断就为假</p>
-<p>###循环（迭代标签库）</p>
-<p>####循环次数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach begin=&quot;&quot; end=&quot;&quot; step=&quot;1&quot;&gt;递增加一&lt;/c:forEach&gt;</span><br><span class="line">&lt;c:forEach begin=&quot;&quot; end=&quot;&quot; step=&quot;-1&quot;&gt;递增减一&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>begin</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">可以把循环的当前下标输出</span><br><span class="line">####遍历集合</span><br></pre></td></tr></table></figure>
+<h3 id="循环（迭代标签库）"><a href="#循环（迭代标签库）" class="headerlink" title="循环（迭代标签库）"></a>循环（迭代标签库）</h3><h4 id="循环次数"><a href="#循环次数" class="headerlink" title="循环次数"></a>循环次数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach begin=&quot;&quot; end=&quot;&quot; step=&quot;1&quot;&gt;递增加一&lt;/c:forEach&gt;</span><br><span class="line">&lt;c:forEach begin=&quot;&quot; end=&quot;&quot; step=&quot;-1&quot;&gt;递增减一&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>begin</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">可以把循环的当前下标输出</span><br><span class="line">#### 遍历集合</span><br></pre></td></tr></table></figure>
 <pre><code>&lt;c:forEach  var=&quot;name&quot; items=&quot;${requestScope.names }&quot; &gt;
     ${name }
 &lt;/c:forEach&gt;
@@ -623,7 +618,7 @@ function setSidebarMarginTop (headerOffset) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#在某个作用域之中（4个范围对象），给某个变量赋值"><span class="nav-number">1.</span> <span class="nav-text">在某个作用域之中（4个范围对象），给某个变量赋值</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSTL"><span class="nav-number">1.</span> <span class="nav-text">JSTL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSTL：比EL更加强大"><span class="nav-number">1.1.</span> <span class="nav-text">JSTL：比EL更加强大</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心标签库：-通用标签库、条件标签库-迭代标签库"><span class="nav-number">1.2.</span> <span class="nav-text">核心标签库：  通用标签库、条件标签库  迭代标签库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用标签库"><span class="nav-number">1.2.1.</span> <span class="nav-text">通用标签库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在某个作用域之中（4个范围对象），给某个变量赋值"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">在某个作用域之中（4个范围对象），给某个变量赋值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#给普通对象赋值"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">给普通对象赋值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#给map对象赋值"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">给map对象赋值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环（迭代标签库）"><span class="nav-number">1.3.</span> <span class="nav-text">循环（迭代标签库）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环次数"><span class="nav-number">1.3.1.</span> <span class="nav-text">循环次数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

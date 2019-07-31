@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##上传文件 ###引入2个jar放入 lib里面  apache: commons-fileupload.jar组件 apache: commons-io.jar组件  commons-fileupload.jar依赖 commons-io.jar">
+<meta name="description" content="上传文件引入2个jar放入 lib里面 apache: commons-fileupload.jar组件 apache: commons-io.jar组件  commons-fileupload.jar依赖 commons-io.jar">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件上传与下载">
 <meta property="og:url" content="http://yoursite.com/2019/07/26/文件上传与下载/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="##上传文件 ###引入2个jar放入 lib里面  apache: commons-fileupload.jar组件 apache: commons-io.jar组件  commons-fileupload.jar依赖 commons-io.jar">
+<meta property="og:description" content="上传文件引入2个jar放入 lib里面 apache: commons-fileupload.jar组件 apache: commons-io.jar组件  commons-fileupload.jar依赖 commons-io.jar">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T03:50:43.387Z">
+<meta property="og:updated_time" content="2019-07-31T07:37:35.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件上传与下载">
-<meta name="twitter:description" content="##上传文件 ###引入2个jar放入 lib里面  apache: commons-fileupload.jar组件 apache: commons-io.jar组件  commons-fileupload.jar依赖 commons-io.jar">
+<meta name="twitter:description" content="上传文件引入2个jar放入 lib里面 apache: commons-fileupload.jar组件 apache: commons-io.jar组件  commons-fileupload.jar依赖 commons-io.jar">
 
 
 
@@ -408,22 +408,19 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <p>##上传文件</p>
-<p>###引入2个jar放入 lib里面</p>
-<ul>
+        <h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><h3 id="引入2个jar放入-lib里面"><a href="#引入2个jar放入-lib里面" class="headerlink" title="引入2个jar放入 lib里面"></a>引入2个jar放入 lib里面</h3><ul>
 <li>apache: commons-fileupload.jar组件</li>
 <li>apache: commons-io.jar组件</li>
 </ul>
 <p>commons-fileupload.jar依赖 commons-io.jar</p>
 <a id="more"></a>
-<p>###代码：</p>
-<p>####前台jsp：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot;  name=&quot;spicture&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><h4 id="前台jsp："><a href="#前台jsp：" class="headerlink" title="前台jsp："></a>前台jsp：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot;  name=&quot;spicture&quot;/&gt;</span><br></pre></td></tr></table></figure>
 <p>注意：</p>
 <ol>
 <li>表单提交方式必须为post</li>
 <li>在表单中必须增加一个属性 entype=”multipart/form-data”</li>
 </ol>
-<p>####后台servlet：<br>判断前台的form是否有mutipart属性</p>
+<h4 id="后台servlet："><a href="#后台servlet：" class="headerlink" title="后台servlet："></a>后台servlet：</h4><p>判断前台的form是否有mutipart属性</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean isMuLtipart=ServletFileUpload.isMultipartContent(request);</span><br></pre></td></tr></table></figure>
 <p>具体后面附有处理图片的部分代码例子</p>
 <p>注意的问题：</p>
@@ -448,14 +445,14 @@ function setSidebarMarginTop (headerOffset) {
 <li>注意 对文件的限制条件 写再parseRequest之前</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">##上传的源码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	request.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">	response.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">		response.setContentType(&quot;text/html; charset=UTF-8&quot;);</span><br><span class="line">		// 上传</span><br><span class="line">		// request.getParameter(&quot;sname&quot;)</span><br><span class="line">		try &#123;</span><br><span class="line">			boolean isMultipart = ServletFileUpload.isMultipartContent(request);</span><br><span class="line">			if (isMultipart) &#123;</span><br><span class="line">				// 判断前台的form是否有mutipart属性</span><br><span class="line">				//FileItemFactory factory = new DiskFileItemFactory();</span><br><span class="line">				DiskFileItemFactory factory = new DiskFileItemFactory();				</span><br><span class="line">				ServletFileUpload upload = new ServletFileUpload(factory);				</span><br><span class="line">				//设置上传文件时 用到的临时文件的大小DiskFileItemFactory</span><br><span class="line">				factory.setSizeThreshold(10240);//设置临时的缓冲文件大小为10</span><br><span class="line">				factory.setRepository(new File(&quot;D:\\study\\uploadtemp&quot;));//设置临时文件的目录</span><br><span class="line">				//控制上传单个文件的大小  20KB ServletFileUpload</span><br><span class="line">				upload.setSizeMax(20480);//字节B</span><br><span class="line">				Thread.sleep(3000);			</span><br><span class="line">				// 通过parseRequest解析form中的所有请求字段，并保存到 items集合中（即前台传递的sno sname</span><br><span class="line">				// spicture此时就保存在了items中）</span><br><span class="line">				List&lt;FileItem&gt; items = upload.parseRequest(request);</span><br><span class="line">				// 遍历items中的数据（item=sno sname spicture）</span><br><span class="line">				Iterator&lt;FileItem&gt; iter = items.iterator();</span><br><span class="line">				while (iter.hasNext()) &#123;</span><br><span class="line">					FileItem item = iter.next();</span><br><span class="line">					String itemName = item.getFieldName();</span><br><span class="line">					int sno = -1;</span><br><span class="line">					String sname = null;</span><br><span class="line">					// 判断前台字段 是普通form表单字段(sno sname)，还是文件字段</span><br><span class="line">					// request.getParameter() -- iter.getString()</span><br><span class="line">					if (item.isFormField()) &#123;</span><br><span class="line">						if (itemName.equals(&quot;sno&quot;)) &#123;// 根据name属性 判断item是sno sname 还是spicture?</span><br><span class="line">							sno = Integer.parseInt(item.getString(&quot;UTF-8&quot;));</span><br><span class="line">						&#125; else if (itemName.equals(&quot;sname&quot;)) &#123;</span><br><span class="line">							sname = item.getString(&quot;UTF-8&quot;);</span><br><span class="line">						&#125; else &#123;</span><br><span class="line">							System.out.println(&quot;其他字段xxx.....&quot;);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125; else &#123;// spicture 123</span><br><span class="line">							// 文件 上传</span><br><span class="line">							// 文件名 getFieldName是获取 普通表单字段的Name值</span><br><span class="line">							// getName()是获取 文件名</span><br><span class="line">						String fileName = item.getName();//a.txt   a.docx   a.png</span><br><span class="line">						String ext = fileName.substring(  fileName.indexOf(&quot;.&quot;)+1 ) ;</span><br><span class="line">						if(!(ext.equals(&quot;png&quot;) || ext.equals(&quot;gif&quot;) ||ext.equals(&quot;jpg&quot;))) &#123;</span><br><span class="line">							System.out.println(&quot;图片类型有误！格式只能是 png gif  jpg&quot;);</span><br><span class="line">							return ;//终止</span><br><span class="line">						&#125;</span><br><span class="line">						// 获取文件内容 并上传</span><br><span class="line">						// 定义文件路径：指定上传的位置(服务器路径)</span><br><span class="line">						// 获取服务器路径D:\\study\\apache-tomcat-8.5.30\\wtpwebapps\\UpAndDown\\upload</span><br><span class="line">						// String path =request.getSession().getServletContext().getRealPath(&quot;upload&quot;) ;</span><br><span class="line">						String path = &quot;D:\\study\\upload&quot;;</span><br><span class="line"></span><br><span class="line">						File file = new File(path, fileName);</span><br><span class="line">						</span><br><span class="line">					</span><br><span class="line">						item.write(file);// 上传</span><br><span class="line">						System.out.println(fileName + &quot;上传成功！&quot;);</span><br><span class="line">						return;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		catch (FileUploadBase.SizeLimitExceededException e) &#123;//SizeLimitExceededException是FileUploadException的一个子类</span><br><span class="line">			System.out.println(&quot;上传文件大小超过限制！最大20KB&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		catch (FileUploadException e) </span><br><span class="line">		&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		// 解析请求</span><br><span class="line">		catch (Exception e) &#123;</span><br><span class="line">			// TODO Auto-generated catch block</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>##下载<br>不需要依赖任何jar    </p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>不需要依赖任何jar    </p>
 <ol>
 <li>请求（地址a  form），请求Servlet    </li>
 <li>Servlet通过文件的地址  将文件转为输入流 读到Servlet中</li>
 <li>通过输出流 将 刚才已经转为输入流的文件  输出给用户</li>
 </ol>
 <p>注意：下载文件 需要设置2个 响应头：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">response.addHeader(&quot;content-Type&quot;,&quot;application/octet-stream&quot; );//MIME类型:二进制文件（任意文件）</span><br><span class="line"></span><br><span class="line">response.addHeader(&quot;content-Disposition&quot;,&quot;attachement;filename=&quot;+fileName );//fileName包含了文件后缀：abc.txt</span><br><span class="line">```		</span><br><span class="line">##下载的源码</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">response.addHeader(&quot;content-Type&quot;,&quot;application/octet-stream&quot; );//MIME类型:二进制文件（任意文件）</span><br><span class="line"></span><br><span class="line">response.addHeader(&quot;content-Disposition&quot;,&quot;attachement;filename=&quot;+fileName );//fileName包含了文件后缀：abc.txt</span><br><span class="line">```		</span><br><span class="line">## 下载的源码</span><br></pre></td></tr></table></figure>
 <pre><code>request.setCharacterEncoding(&quot;utf-8&quot;);
 //获取需要下载的文件名
 String fileName = request.getParameter(&quot;filename&quot;) ;//form  、a  href、 ...Server?a=b
@@ -584,8 +581,17 @@ in.close();
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -645,6 +651,22 @@ in.close();
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上传文件"><span class="nav-number">1.</span> <span class="nav-text">上传文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#引入2个jar放入-lib里面"><span class="nav-number">1.1.</span> <span class="nav-text">引入2个jar放入 lib里面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码："><span class="nav-number">1.2.</span> <span class="nav-text">代码：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前台jsp："><span class="nav-number">1.2.1.</span> <span class="nav-text">前台jsp：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台servlet："><span class="nav-number">1.2.2.</span> <span class="nav-text">后台servlet：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">2.</span> <span class="nav-text">下载</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

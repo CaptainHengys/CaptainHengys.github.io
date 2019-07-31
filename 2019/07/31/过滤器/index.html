@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##过滤器 实现一个Filter接口 init()、destroy() 原理、执行时机 同Servlet">
+<meta name="description" content="过滤器实现一个Filter接口 init()、destroy() 原理、执行时机 同Servlet">
 <meta name="keywords" content="java web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="过滤器">
 <meta property="og:url" content="http://yoursite.com/2019/07/31/过滤器/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="##过滤器 实现一个Filter接口 init()、destroy() 原理、执行时机 同Servlet">
+<meta property="og:description" content="过滤器实现一个Filter接口 init()、destroy() 原理、执行时机 同Servlet">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-31T07:01:07.804Z">
+<meta property="og:updated_time" content="2019-07-31T07:38:44.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="过滤器">
-<meta name="twitter:description" content="##过滤器 实现一个Filter接口 init()、destroy() 原理、执行时机 同Servlet">
+<meta name="twitter:description" content="过滤器实现一个Filter接口 init()、destroy() 原理、执行时机 同Servlet">
 
 
 
@@ -408,23 +408,20 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <p>##过滤器</p>
-<p>实现一个Filter接口</p>
+        <h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><p>实现一个Filter接口</p>
 <p>init()、destroy() 原理、执行时机 同Servlet<br><a id="more"></a></p>
-<p>###配置过滤器，类似servlet<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;filter&gt;</span><br><span class="line">	&lt;filter-name&gt;x&lt;filter-name&gt;</span><br><span class="line">	&lt;filter-class&gt;org.student.filter.MyFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">	&lt;filter-nmae&gt;x&lt;/filter-name&gt;</span><br><span class="line">	&lt;url-pattern&gt;/mySerlvet&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置过滤器，类似servlet"><a href="#配置过滤器，类似servlet" class="headerlink" title="配置过滤器，类似servlet"></a>配置过滤器，类似servlet</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;filter&gt;</span><br><span class="line">	&lt;filter-name&gt;x&lt;filter-name&gt;</span><br><span class="line">	&lt;filter-class&gt;org.student.filter.MyFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">	&lt;filter-nmae&gt;x&lt;/filter-name&gt;</span><br><span class="line">	&lt;url-pattern&gt;/mySerlvet&lt;/url-pattern&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure>
 <p>所有请求/mySerlvet的全都先被org.student.filter.MyFilter拦截<br>通过doFilter()处理拦截，并且通过这个方法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chain.doFilter(request, response);</span><br></pre></td></tr></table></figure>
 <p>将所有request，response都进行放行</p>
 <p>如果想对response不放行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chain.doFilter(request,null);</span><br></pre></td></tr></table></figure></p>
-<p>###filter映射</p>
-<p>只拦截 访问MyServlet的请求<br>    <url-pattern>/MyServlet</url-pattern><br>拦截一切请求（每一次访问 都会被拦截）<br>    <url-pattern>/*</url-pattern></p>
-<p>###通配符</p>
-<p>dispatcher请求方式：<br>REQUEST：拦截HTTP请求 get post<br>FORWARD：只拦截 通过 请求转发方式的请求</p>
+<h3 id="filter映射"><a href="#filter映射" class="headerlink" title="filter映射"></a>filter映射</h3><p>只拦截 访问MyServlet的请求<br>    <url-pattern>/MyServlet</url-pattern><br>拦截一切请求（每一次访问 都会被拦截）<br>    <url-pattern>/*</url-pattern></p>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>dispatcher请求方式：<br>REQUEST：拦截HTTP请求 get post<br>FORWARD：只拦截 通过 请求转发方式的请求</p>
 <p>INCLUDE:只拦截拦截通过 request.getRequestDispatcher(“”).include()  、通过&lt;jsp:include page=”…” /&gt;此种方式发出的请求<br>ERROR：只拦截<error-page>发出的请求</error-page></p>
 <p>应用举例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;filter&gt;</span><br><span class="line">	&lt;filter-name&gt;x&lt;filter-name&gt;</span><br><span class="line">	&lt;filter-class&gt;org.student.filter.MyFilter&lt;/filter-class&gt;</span><br><span class="line">&lt;/filter&gt;</span><br><span class="line">&lt;filter-mapping&gt;</span><br><span class="line">	&lt;filter-nmae&gt;x&lt;/filter-name&gt;</span><br><span class="line">	&lt;url-pattern&gt;/mySerlvet&lt;/url-pattern&gt;</span><br><span class="line">	&lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;</span><br><span class="line">&lt;/filter-mapping&gt;</span><br></pre></td></tr></table></figure>
-<p>###注意<br>过滤器中doFilter方法参数：ServletRequest<br>在Servlet中的方法参数：HttpServletRequest</p>
-<p>###过滤器链<br>可以配置多个过滤器，过滤器的先后顺序 是由 <filter-mapping>的位置 决定，谁在前就先经过哪个过滤器</filter-mapping></p>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>过滤器中doFilter方法参数：ServletRequest<br>在Servlet中的方法参数：HttpServletRequest</p>
+<h3 id="过滤器链"><a href="#过滤器链" class="headerlink" title="过滤器链"></a>过滤器链</h3><p>可以配置多个过滤器，过滤器的先后顺序 是由 <filter-mapping>的位置 决定，谁在前就先经过哪个过滤器</filter-mapping></p>
 
       
     </div>
@@ -520,8 +517,17 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -581,6 +587,22 @@ function setSidebarMarginTop (headerOffset) {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器"><span class="nav-number">1.</span> <span class="nav-text">过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置过滤器，类似servlet"><span class="nav-number">1.1.</span> <span class="nav-text">配置过滤器，类似servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter映射"><span class="nav-number">1.2.</span> <span class="nav-text">filter映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通配符"><span class="nav-number">1.3.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器链"><span class="nav-number">1.5.</span> <span class="nav-text">过滤器链</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
