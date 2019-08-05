@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##session绑定解绑，钝化活化 ###session的钝化和活化  钝化：内存-&amp;gt;硬盘 活化：硬盘-&amp;gt;内存  ###session对象的四种状态下面两个监听器无需配置web.xml，写好之后，加入到session域中 ####监听session绑定，解绑：HttpSessionBindingListenner接口  session.setAttribute(“a”,xxx) 对象">
+<meta name="description" content="session绑定解绑，钝化活化session的钝化和活化 钝化：内存-&amp;gt;硬盘 活化：硬盘-&amp;gt;内存">
 <meta name="keywords" content="java web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="session绑定解绑，钝化活化">
 <meta property="og:url" content="http://yoursite.com/2019/07/31/session绑定解绑，钝化活化/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="##session绑定解绑，钝化活化 ###session的钝化和活化  钝化：内存-&amp;gt;硬盘 活化：硬盘-&amp;gt;内存  ###session对象的四种状态下面两个监听器无需配置web.xml，写好之后，加入到session域中 ####监听session绑定，解绑：HttpSessionBindingListenner接口  session.setAttribute(“a”,xxx) 对象">
+<meta property="og:description" content="session绑定解绑，钝化活化session的钝化和活化 钝化：内存-&amp;gt;硬盘 活化：硬盘-&amp;gt;内存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-01T06:18:00.314Z">
+<meta property="og:updated_time" content="2019-08-05T14:30:06.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="session绑定解绑，钝化活化">
-<meta name="twitter:description" content="##session绑定解绑，钝化活化 ###session的钝化和活化  钝化：内存-&amp;gt;硬盘 活化：硬盘-&amp;gt;内存  ###session对象的四种状态下面两个监听器无需配置web.xml，写好之后，加入到session域中 ####监听session绑定，解绑：HttpSessionBindingListenner接口  session.setAttribute(“a”,xxx) 对象">
+<meta name="twitter:description" content="session绑定解绑，钝化活化session的钝化和活化 钝化：内存-&amp;gt;硬盘 活化：硬盘-&amp;gt;内存">
 
 
 
@@ -371,7 +371,7 @@ function setSidebarMarginTop (headerOffset) {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  288
+                  287
                 </span>
               
 
@@ -408,28 +408,24 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <p>##session绑定解绑，钝化活化</p>
-<p>###session的钝化和活化</p>
-<ul>
+        <h2 id="session绑定解绑，钝化活化"><a href="#session绑定解绑，钝化活化" class="headerlink" title="session绑定解绑，钝化活化"></a>session绑定解绑，钝化活化</h2><h3 id="session的钝化和活化"><a href="#session的钝化和活化" class="headerlink" title="session的钝化和活化"></a>session的钝化和活化</h3><ul>
 <li>钝化：内存-&gt;硬盘</li>
-<li>活化：硬盘-&gt;内存</li>
-</ul>
-<p>###session对象的四种状态<br>下面两个监听器无需配置web.xml，写好之后，加入到session域中</p>
-<p>####监听session绑定，解绑：HttpSessionBindingListenner接口</p>
-<ul>
-<li>session.setAttribute(“a”,xxx) 对象a绑定到session中</li>
+<li><p>活化：硬盘-&gt;内存</p>
+<a id="more"></a>
+<h3 id="session对象的四种状态"><a href="#session对象的四种状态" class="headerlink" title="session对象的四种状态"></a>session对象的四种状态</h3><p>下面两个监听器无需配置web.xml，写好之后，加入到session域中</p>
+<h4 id="监听session绑定，解绑：HttpSessionBindingListenner接口"><a href="#监听session绑定，解绑：HttpSessionBindingListenner接口" class="headerlink" title="监听session绑定，解绑：HttpSessionBindingListenner接口"></a>监听session绑定，解绑：HttpSessionBindingListenner接口</h4></li>
+<li><p>session.setAttribute(“a”,xxx) 对象a绑定到session中</p>
+</li>
 <li>session.removeAttribute(“a”)    对象a从session中解绑</li>
 </ul>
-<p>####监听session钝化，活化：HttpSessionActivationListener接口</p>
-<p>HttpSessionActivationListener有两个方法</p>
+<h4 id="监听session钝化，活化：HttpSessionActivationListener接口"><a href="#监听session钝化，活化：HttpSessionActivationListener接口" class="headerlink" title="监听session钝化，活化：HttpSessionActivationListener接口"></a>监听session钝化，活化：HttpSessionActivationListener接口</h4><p>HttpSessionActivationListener有两个方法</p>
 <ul>
 <li>钝化   sessionWillPassivate  监听即将钝化之前</li>
 <li>活化     sessionDidActivate        监听刚刚活化之后</li>
 </ul>
 <p>只是在session钝化，活化之前，提示一下</p>
-<p>####具体如何进行钝化，活化</p>
-<p>#####钝化<br>去配置tomcat/conf/context.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MaxIdleSwap:最大空闲时间，如果session这段时间未操作，就钝化</span><br><span class="line">directory=&quot;文件目录&quot;，相对于项目文件下，当然你也可以写绝对路径</span><br><span class="line">&lt;Manager classname=&quot;org.apache.catalina.session.PersistentManager&quot;  MaxIdleSwap=&quot;5&quot;&gt;</span><br><span class="line">&lt;Store className=&quot;org.apache.catalina.session.FileStore&quot; directory=&quot;文件目录&quot;&gt;</span><br><span class="line">&lt;/Manager&gt;</span><br></pre></td></tr></table></figure></p>
-<p>#####活化<br>自动活化，不需要人为操作，他先去内存里去找，如果没有，会自动去硬盘中的钝化文件里读取session中的对象</p>
+<h4 id="具体如何进行钝化，活化"><a href="#具体如何进行钝化，活化" class="headerlink" title="具体如何进行钝化，活化"></a>具体如何进行钝化，活化</h4><h5 id="钝化"><a href="#钝化" class="headerlink" title="钝化"></a>钝化</h5><p>去配置tomcat/conf/context.xml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MaxIdleSwap:最大空闲时间，如果session这段时间未操作，就钝化</span><br><span class="line">directory=&quot;文件目录&quot;，相对于项目文件下，当然你也可以写绝对路径</span><br><span class="line">&lt;Manager classname=&quot;org.apache.catalina.session.PersistentManager&quot;  MaxIdleSwap=&quot;5&quot;&gt;</span><br><span class="line">&lt;Store className=&quot;org.apache.catalina.session.FileStore&quot; directory=&quot;文件目录&quot;&gt;</span><br><span class="line">&lt;/Manager&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="活化"><a href="#活化" class="headerlink" title="活化"></a>活化</h5><p>自动活化，不需要人为操作，他先去内存里去找，如果没有，会自动去硬盘中的钝化文件里读取session中的对象</p>
 
       
     </div>
@@ -525,8 +521,17 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -586,6 +591,22 @@ function setSidebarMarginTop (headerOffset) {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#session绑定解绑，钝化活化"><span class="nav-number">1.</span> <span class="nav-text">session绑定解绑，钝化活化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session的钝化和活化"><span class="nav-number">1.1.</span> <span class="nav-text">session的钝化和活化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session对象的四种状态"><span class="nav-number">1.2.</span> <span class="nav-text">session对象的四种状态</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#监听session绑定，解绑：HttpSessionBindingListenner接口"><span class="nav-number">1.2.1.</span> <span class="nav-text">监听session绑定，解绑：HttpSessionBindingListenner接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听session钝化，活化：HttpSessionActivationListener接口"><span class="nav-number">1.2.2.</span> <span class="nav-text">监听session钝化，活化：HttpSessionActivationListener接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体如何进行钝化，活化"><span class="nav-number">1.2.3.</span> <span class="nav-text">具体如何进行钝化，活化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#钝化"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">钝化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#活化"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">活化</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
