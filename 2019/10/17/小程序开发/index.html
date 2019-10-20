@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="微信小程序1.app.json/pages加载的第一条是首页2.wx.navigateTo()与wx.redirectTo()避免过多使用wx.navigateTo()，wx.navigateTo(),会保留当前页面资源，然后去向目标页面，用wx.navigateTo(),会有返回箭头，当频繁使用此方法，会占用大量内存，可以使用没有返回键，但是关闭页面资源的wx.redirectTo() 123w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录我的代码生活">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/小程序开发/index.html">
+<meta property="og:site_name" content="记录我的代码生活">
+<meta property="og:description" content="微信小程序1.app.json/pages加载的第一条是首页2.wx.navigateTo()与wx.redirectTo()避免过多使用wx.navigateTo()，wx.navigateTo(),会保留当前页面资源，然后去向目标页面，用wx.navigateTo(),会有返回箭头，当频繁使用此方法，会占用大量内存，可以使用没有返回键，但是关闭页面资源的wx.redirectTo() 123w">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="e:/weixinxiaochengxu/笔记图片/QQ截图20190923093525.png">
+<meta property="og:image" content="e:/weixinxiaochengxu/笔记图片/QQ截图20190923095403.png">
+<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-1516773/9u81vv8n8r.jpeg?imageView2/2/w/1620">
+<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-1516773/aoch8wbkm3.jpeg?imageView2/2/w/1620">
+<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-1516773/rw8gebieio.jpeg?imageView2/2/w/1620">
+<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-1516773/zf2n9hmcg4.jpeg?imageView2/2/w/1620">
+<meta property="og:image" content="https://ask.qcloudimg.com/http-save/yehe-1516773/k92ld9yfqe.png?imageView2/2/w/1620">
+<meta property="og:updated_time" content="2019-10-13T09:10:54.242Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录我的代码生活">
+<meta name="twitter:description" content="微信小程序1.app.json/pages加载的第一条是首页2.wx.navigateTo()与wx.redirectTo()避免过多使用wx.navigateTo()，wx.navigateTo(),会保留当前页面资源，然后去向目标页面，用wx.navigateTo(),会有返回箭头，当频繁使用此方法，会占用大量内存，可以使用没有返回键，但是关闭页面资源的wx.redirectTo() 123w">
+<meta name="twitter:image" content="e:/weixinxiaochengxu/笔记图片/QQ截图20190923093525.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/17/小程序开发/">
+
+
+
+
+
+  <title> | 记录我的代码生活</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><script>
+ function GetRandomNum(Min,Max)
+  {
+    var Range = Max - Min;
+    var Rand = Math.random();
+    return(Min + Math.round(Rand * Range));
+  }
+function setSidebarMarginTop (headerOffset) {
+    return $('#sidebar').css({ 'margin-top': headerOffset });
+  }
+ function getHeaderOffset () {
+    return $('.header-inner').height() + CONFIG.sidebar.offset;
+  }
+  window.onload=function(){
+    var subtitle = "我是石原里美的正牌男友";
+     var mytitle = subtitle.split("W");
+     var max = mytitle.length-1;
+     var index = GetRandomNum(0,max);
+     var text = mytitle[index];
+     $("#helloTitle").html(text);
+     var headOffset = getHeaderOffset();
+     setSidebarMarginTop(headOffset);
+   // alert(getHeaderOffset());
+  }
+</script>
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">记录我的代码生活</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我是石原里美的正牌男友</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/小程序开发/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hengxiaoyudashan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="记录我的代码生活">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T17:46:18+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h4><h5 id="1-app-json-pages加载的第一条是首页"><a href="#1-app-json-pages加载的第一条是首页" class="headerlink" title="1.app.json/pages加载的第一条是首页"></a>1.app.json/pages加载的第一条是首页</h5><h5 id="2-wx-navigateTo-与wx-redirectTo"><a href="#2-wx-navigateTo-与wx-redirectTo" class="headerlink" title="2.wx.navigateTo()与wx.redirectTo()"></a>2.wx.navigateTo()与wx.redirectTo()</h5><p>避免过多使用wx.navigateTo()，wx.navigateTo(),会保留当前页面资源，然后去向目标页面，用wx.navigateTo(),会有返回箭头，当频繁使用此方法，会占用大量内存，可以使用没有返回键，但是关闭页面资源的wx.redirectTo()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">     url: <span class="string">'../userRegist/regist'</span>,</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="3-弹出提示框"><a href="#3-弹出提示框" class="headerlink" title="3.弹出提示框"></a>3.弹出提示框</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wx.showToast(&#123;</span><br><span class="line">             title: <span class="string">"登陆成功"</span>,<span class="comment">//提示的内容</span></span><br><span class="line">             icon: <span class="string">'success'</span>,<span class="comment">//图标</span></span><br><span class="line">             duration: <span class="number">3000</span><span class="comment">//提示的延迟时间</span></span><br><span class="line">           &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="4-为什么要加上请等待提示框？"><a href="#4-为什么要加上请等待提示框？" class="headerlink" title="4.为什么要加上请等待提示框？"></a>4.为什么要加上请等待提示框？</h5><p>系统再处理的时候需要时间，可能会产生延迟，但是前端不会有任何提示用户的信息，有可能在后台处理的时候，用户会以为系统卡住，等原因，所以加上一个</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.showLoading(&#123;</span><br><span class="line">       title: <span class="string">'请等待...'</span>,</span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+<p>在后台成功将数据处理完之后,添加下面的代码就可以去掉提示框</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> status = res.data.status;</span><br><span class="line">    <span class="keyword">if</span> (status == <span class="number">200</span>) &#123;</span><br><span class="line">        wx.hideLoading();</span><br><span class="line">        ......</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="5，wx-if否定感叹号的位置"><a href="#5，wx-if否定感叹号的位置" class="headerlink" title="5，wx:if否定感叹号的位置"></a>5，wx:if否定感叹号的位置</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;block wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;isMe&#125;&#125;"</span>&gt;</span><br><span class="line">     &lt;button size=<span class="string">'mini'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">'primary'</span> bindtap=<span class="string">'uploadVideo'</span>&gt; 上传作品&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">     &lt;button size='mini' type='' class='logout' bindtap='logout'&gt;注销&lt;/</span>button&gt;</span><br><span class="line">   &lt;<span class="regexp">/block&gt;</span></span><br><span class="line"><span class="regexp">   &lt;block wx:if="&#123;&#123;!isMe&#125;&#125;"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;block wx:if="&#123;&#123;isFollow&#125;&#125;"&gt;</span></span><br><span class="line"><span class="regexp">      &lt;button size='mini' type='' class='follow' data-followType='0' bindtap='followMe'&gt; 已关注&lt;/</span>button&gt;</span><br><span class="line">     &lt;<span class="regexp">/block&gt;</span></span><br><span class="line"><span class="regexp">      &lt;block wx:if="&#123;&#123;!isFollow&#125;&#125;"&gt;</span></span><br><span class="line"><span class="regexp">     &lt;button size='mini' type='primary' class='follow' data-followType='1' bindtap='followMe'&gt; 关注我&lt;/</span>button&gt;</span><br><span class="line">       &lt;<span class="regexp">/block&gt;</span></span><br><span class="line"><span class="regexp">   &lt;/</span>block&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="6，在wxml中为组件中添加你想用的数据并在js中拿出来"><a href="#6，在wxml中为组件中添加你想用的数据并在js中拿出来" class="headerlink" title="6，在wxml中为组件中添加你想用的数据并在js中拿出来"></a>6，在wxml中为组件中添加你想用的数据并在js中拿出来</h5><p> data-followType=’0’</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;block wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;isFollow&#125;&#125;"</span>&gt;</span><br><span class="line">       &lt;button size=<span class="string">'mini'</span> type=<span class="string">''</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">'follow'</span> data-followType=<span class="string">'0'</span> bindtap=<span class="string">'followMe'</span>&gt; 已关注&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>block&gt;</span><br><span class="line">&lt;block wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;!isFollow&#125;&#125;"</span>&gt;</span><br><span class="line">      &lt;button size=<span class="string">'mini'</span> type=<span class="string">'primary'</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">'follow'</span> data-followType=<span class="string">'1'</span> bindtap=<span class="string">'followMe'</span>&gt; 关注我&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>block&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>如何从wxml中拿出来数据呢？</strong></p>
+<p>//不支持大写，所以followType要写成followtype</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不支持大写，所以followType要写成followtype</span></span><br><span class="line"><span class="keyword">var</span> followType=e.currentTarget.dataset.followtype;</span><br></pre></td></tr></table></figure>
+<h5 id="7，JSON整体的数据传送"><a href="#7，JSON整体的数据传送" class="headerlink" title="7，JSON整体的数据传送"></a>7，JSON整体的数据传送</h5><p>前端，把他stirngify但是要注意前面#videoInfo@要是其他的符号，不能是？和=，如果是？和=，那么后面的videoinfo中还有的？和=就会被忽略掉</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> videoInfo = <span class="built_in">JSON</span>.stringify(me.data.videoInfo);</span><br><span class="line"><span class="keyword">var</span> realUrl = <span class="string">'../videoinfo/videoinfo#videoInfo@'</span> + videoInfo;</span><br></pre></td></tr></table></figure>
+<h5 id="8，-RequestBody对应data里的数据"><a href="#8，-RequestBody对应data里的数据" class="headerlink" title="8，@RequestBody对应data里的数据"></a>8，@RequestBody对应data里的数据</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">wx.request(&#123;</span><br><span class="line">       url: serverUrl + <span class="string">'/user/reportUser'</span>,</span><br><span class="line">       method: <span class="string">'POST'</span>,</span><br><span class="line">       data: &#123;</span><br><span class="line">         dealUserId: me.data.publishUserId,</span><br><span class="line">         dealVideoId: me.data.videoId,</span><br><span class="line">         title: app.reportReasonArray[reasonIndex],</span><br><span class="line">         content:reasonContent,</span><br><span class="line">         userid: currentUserId</span><br><span class="line">       &#125;,</span><br><span class="line">       header: &#123;</span><br><span class="line">         <span class="string">'content-type'</span>: <span class="string">'application/json'</span>, <span class="comment">// 默认值</span></span><br><span class="line">         <span class="string">'headerUserId'</span>: user.id,</span><br><span class="line">         <span class="string">'headerUserToken'</span>: user.userToken</span><br><span class="line">       &#125;,</span><br><span class="line">       success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">         wx.showToast(&#123;</span><br><span class="line">           title: res.data.msg,</span><br><span class="line">           duration: <span class="number">2000</span>,</span><br><span class="line">           icon: <span class="string">'none'</span>,</span><br><span class="line">           success: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">             wx.navigateBack();</span><br><span class="line">           &#125;</span><br><span class="line">         &#125;)</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">     &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="9-微信授权登陆"><a href="#9-微信授权登陆" class="headerlink" title="9.微信授权登陆"></a>9.微信授权登陆</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;view&gt;</span><br><span class="line">	&lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"goRegistBtn"</span> type=<span class="string">"warn"</span> open-type=<span class="string">"getUserInfo"</span> 			  bindgetuserinfo=<span class="string">"goWxRegistPage"</span>&gt;微信登陆&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>view&gt;</span><br></pre></td></tr></table></figure>
+<p>bindgetuserinfo绑定函数，用户点击该按钮时，会返回获取到的用户信息，回调的detail数据与<a href="https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserInfo.html" target="_blank" rel="noopener">wx.getUserInfo</a>返回的一致，open-type=”getUserInfo”时有效 ，所以也要加上open-type=”getUserInfo“</p>
+<p>注意这里bindgetuserinfo全为小写</p>
+<h4 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h4><h5 id="1-以对象的方式去操作sql"><a href="#1-以对象的方式去操作sql" class="headerlink" title="1.以对象的方式去操作sql"></a>1.以对象的方式去操作sql</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意引入包的包名，不是swagger下的包</span></span><br><span class="line"><span class="keyword">import</span> tk.mybatis.mapper.entity.Example;</span><br><span class="line"><span class="comment">//给出用户的名称密码，去判断数据库中是否存在此用户</span></span><br><span class="line"><span class="meta">@Transactional</span>(propagation = Propagation.SUPPORTS)</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> Users <span class="title">queryUserForLogin</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//以对象的方式去操作sql	</span></span><br><span class="line">       Example userExample = <span class="keyword">new</span> Example(Users.class);</span><br><span class="line">       Example.Criteria criteria = userExample.createCriteria();</span><br><span class="line">       criteria.andEqualTo(<span class="string">"username"</span>, username);<span class="comment">//条件相等</span></span><br><span class="line">       criteria.andEqualTo(<span class="string">"password"</span>, password);<span class="comment">//条件相等</span></span><br><span class="line">       Users result = usersMapper.selectOneByExample(userExample);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-Maven的聚合开发"><a href="#2-Maven的聚合开发" class="headerlink" title="2.Maven的聚合开发"></a>2.Maven的聚合开发<img src="E:\weixinxiaochengxu\笔记图片\QQ截图20190923093525.png" alt></h5><p>不要忘记如果修改了某一层，但是需要使用其他层的时候，需要Maven install</p>
+<h5 id="3-为什么要bean赋值转换？PO-gt-BO-gt-VO"><a href="#3-为什么要bean赋值转换？PO-gt-BO-gt-VO" class="headerlink" title="3.为什么要bean赋值转换？PO-&gt;BO-&gt;VO"></a>3.为什么要bean赋值转换？PO-&gt;BO-&gt;VO</h5><p><img src="E:\weixinxiaochengxu\笔记图片\QQ截图20190923095403.png" alt></p>
+<p>从数据库拿出来的PO是最原始的数据，再加工过程中，我们可能需要不断对PO进行修改，对象的属性会变得不断复杂，这时就需要bean赋值转换，但是如果程序一个PO对象就可以贯穿始终，那么就不需要bean赋值转换</p>
+<h5 id="4-Swagger2来构建API文档"><a href="#4-Swagger2来构建API文档" class="headerlink" title="4.Swagger2来构建API文档"></a>4.Swagger2来构建API文档</h5><p><strong>1    引入swagger2，swagger-ui依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- swagger2 配置 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>2  修改下面模板代码即可</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.dashan;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.ApiInfoBuilder;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.PathSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.RequestHandlerSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.ApiInfo;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.Contact;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spi.DocumentationType;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.swagger2.annotations.EnableSwagger2;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>:Frank</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>:2019/9/21 11:01</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="comment">//启用Swagger</span></span><br><span class="line"><span class="meta">@EnableSwagger</span>2</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Swagger2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span>:swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 为swagger添加header参数可供输入</span></span><br><span class="line">        <span class="comment">/*   </span></span><br><span class="line"><span class="comment">        ParameterBuilder userTokenHeader = new ParameterBuilder();</span></span><br><span class="line"><span class="comment">        ParameterBuilder userIdHeader = new ParameterBuilder();</span></span><br><span class="line"><span class="comment">        List&lt;Parameter&gt; pars = new ArrayList&lt;Parameter&gt;();</span></span><br><span class="line"><span class="comment">        userTokenHeader.name("headerUserToken").description("userToken")</span></span><br><span class="line"><span class="comment">                .modelRef(new ModelRef("string")).parameterType("header")</span></span><br><span class="line"><span class="comment">                .required(false).build();</span></span><br><span class="line"><span class="comment">        userIdHeader.name("headerUserId").description("userId")</span></span><br><span class="line"><span class="comment">                .modelRef(new ModelRef("string")).parameterType("header")</span></span><br><span class="line"><span class="comment">                .required(false).build();</span></span><br><span class="line"><span class="comment">        pars.add(userTokenHeader.build());</span></span><br><span class="line"><span class="comment">        pars.add(userIdHeader.build());</span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">            .apiInfo(apiInfo())</span><br><span class="line">            .select()</span><br><span class="line">            .apis(RequestHandlerSelectors</span><br><span class="line">            .basePackage(<span class="string">"com.dashan.controller"</span>))<span class="comment">//扫描接口路径</span></span><br><span class="line">            .paths(PathSelectors.any())</span><br><span class="line">            .build();</span><br><span class="line">         <span class="comment">// .globalOperationParameters(pars);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Description</span>: 构建 api文档的信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                <span class="comment">// 设置页面标题</span></span><br><span class="line">                .title(<span class="string">"使用swagger2构建短视频后端api接口文档"</span>)</span><br><span class="line">                <span class="comment">// 设置联系人</span></span><br><span class="line">                .contact(<span class="keyword">new</span> Contact(<span class="string">"dashan-衡玉山"</span>, <span class="string">"2430149166@qq.com"</span>,<span class="string">"2430149166@qq.com"</span>))</span><br><span class="line">                <span class="comment">// 描述</span></span><br><span class="line">                .description(<span class="string">"欢迎访问短视频接口文档，这里是描述信息"</span>)</span><br><span class="line">                <span class="comment">// 定义版本号</span></span><br><span class="line">                .version(<span class="string">"1.0"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3  常用的注解</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>：用在请求的类上，表示对类的说明</span><br><span class="line">    tags=<span class="string">"说明该类的作用，可以在UI界面上看到的注解"</span></span><br><span class="line">    value=<span class="string">"该参数没什么意义，在UI界面上也看到，所以不需要配置"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@ApiOperation</span>：用在请求的方法上，说明方法的用途、作用</span><br><span class="line">    value=<span class="string">"说明方法的用途、作用"</span></span><br><span class="line">    notes=<span class="string">"方法的备注说明"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@ApiImplicitParams</span>：用在请求的方法上，表示一组参数说明</span><br><span class="line">    <span class="meta">@ApiImplicitParam</span>：用在<span class="meta">@ApiImplicitParams</span>注解中，指定一个请求参数的各个方面</span><br><span class="line">        name：参数名</span><br><span class="line">        value：参数的汉字说明、解释</span><br><span class="line">        required：参数是否必须传</span><br><span class="line">        paramType：参数放在哪个地方</span><br><span class="line">            · header --&gt; 请求参数的获取：<span class="meta">@RequestHeader</span></span><br><span class="line">            · query --&gt; 请求参数的获取：<span class="meta">@RequestParam</span></span><br><span class="line">            · path（用于restful接口）--&gt; 请求参数的获取：<span class="meta">@PathVariable</span></span><br><span class="line">            · body（不常用）</span><br><span class="line">            · form（不常用）    </span><br><span class="line">        dataType：参数类型，默认String，其它值dataType=<span class="string">"Integer"</span>       </span><br><span class="line">        defaultValue：参数的默认值	</span><br><span class="line">        </span><br><span class="line"><span class="meta">@ApiResponses</span>：用在请求的方法上，表示一组响应</span><br><span class="line">    <span class="meta">@ApiResponse</span>：用在<span class="meta">@ApiResponses</span>中，一般用于表达一个错误的响应信息</span><br><span class="line">        code：数字，例如<span class="number">400</span></span><br><span class="line">        message：信息，例如<span class="string">"请求参数没填好"</span></span><br><span class="line">        response：抛出异常的类</span><br><span class="line"></span><br><span class="line"><span class="meta">@ApiModel</span>：用于响应类上，表示一个返回响应数据的信息</span><br><span class="line">            （这种一般用在post创建的时候，使用<span class="meta">@RequestBody</span>这样的场景，</span><br><span class="line">            请求参数无法使用<span class="meta">@ApiImplicitParam</span>注解进行描述的时候）</span><br><span class="line">    <span class="meta">@ApiModelProperty</span>：用在属性上，描述响应类的属性</span><br></pre></td></tr></table></figure>
+<p><strong>4 部分例子</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Api</span>(value=<span class="string">"用户注册登录的接口"</span>,tags=&#123;<span class="string">"注册和登陆的controller"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">@ApiOperation</span>(value=<span class="string">"用户注销"</span>,notes=<span class="string">"用户注销的接口"</span>)</span><br><span class="line"><span class="meta">@ApiImplicitParam</span>(name=<span class="string">"userId"</span>,value=<span class="string">"用户id"</span>,required=<span class="keyword">true</span>,dataType=<span class="string">"String"</span>,paramType = <span class="string">"query"</span>)</span><br><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/logout"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> dashanJSONResult <span class="title">logout</span> <span class="params">(String userId)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br></pre></td></tr></table></figure>
+<h5 id="5-给定了路径，没有父文件，自动创建父文件"><a href="#5-给定了路径，没有父文件，自动创建父文件" class="headerlink" title="5.给定了路径，没有父文件，自动创建父文件"></a>5.给定了路径，没有父文件，自动创建父文件</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文件上传的最终保存路径</span></span><br><span class="line">String finalFacePath=fileSpace+uploadPathDB+<span class="string">"/"</span>+fileName;</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置数据库保存路径</span></span><br><span class="line">uploadPathDB+= (<span class="string">"/"</span>+fileName);</span><br><span class="line"></span><br><span class="line"><span class="comment">//没有父文件夹，则创建</span></span><br><span class="line">File outFile=<span class="keyword">new</span> File(finalFacePath);</span><br><span class="line"><span class="comment">//第一个条件，基本没用，删了应该也行，看文件所在的父文件夹是否为文件，其实空不空都没关系，第二个的条件才是关键</span></span><br><span class="line"><span class="comment">//第二个条件判断父文件是文件夹么，如果路径不存在，他就不是，然后就创建</span></span><br><span class="line"><span class="keyword">if</span>(outFile.getParentFile()!=<span class="keyword">null</span>||!outFile.getParentFile().isDirectory())&#123;</span><br><span class="line">    outFile.getParentFile().mkdirs();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="6-文件流的传送"><a href="#6-文件流的传送" class="headerlink" title="6.文件流的传送"></a>6.文件流的传送</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream fileOutputStream=<span class="keyword">null</span>;</span><br><span class="line">InputStream inputStream=<span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//输出的路径为outFile</span></span><br><span class="line">fileOutputStream=<span class="keyword">new</span> FileOutputStream(outFile);       </span><br><span class="line"><span class="comment">//获取fileName文件到输入输入流</span></span><br><span class="line">inputStream=fileName.getInputStream();</span><br><span class="line"><span class="comment">//把文件输出到outFile</span></span><br><span class="line">IOUtils.copy(inputStream,fileOutputStream);</span><br><span class="line"><span class="comment">//关闭流</span></span><br><span class="line"><span class="keyword">if</span>(fileOutputStream!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    fileOutputStream.flush();</span><br><span class="line">    fileOutputStream.close()；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="7-ffmpeg合并视频和音频"><a href="#7-ffmpeg合并视频和音频" class="headerlink" title="7.ffmpeg合并视频和音频"></a>7.ffmpeg合并视频和音频</h5><p>第一种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//将原有视频的音频消除</span><br><span class="line">ffmpeg.exe -i video.mp4 -vcodec copy -an video2.mp4</span><br><span class="line">//再把另外的音频加入</span><br><span class="line">ffmpeg.exe -i 1.mp4 -i 1.mp3 -vcodec copy -acodec copy 1.mp4</span><br></pre></td></tr></table></figure>
+<p>注意，如果直接使用第二条指令，不会成功，必须先执行第一条指令，把原来的音频消除掉</p>
+<p>第二种</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i <span class="number">1</span>.mp3 -i <span class="number">2</span>.mp4 -t <span class="number">10</span> -y out.mp4</span><br></pre></td></tr></table></figure>
+<p>炸了！！！从QQ音乐和网易云音乐下载的MP3都不行,只能用自己录得音频，mp3,m4a都可以，不懂是为什么</p>
+<p><strong>终于找到方法了</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -i 言叶之庭.mp4 -i dong.m4a -map <span class="number">0</span>:v -map <span class="number">1</span>:a -c copy -shortest output.mp4</span><br></pre></td></tr></table></figure>
+<p><strong>手动选择特定流</strong></p>
+<p>有时，默认的流选择不会给你想要的结果。在这个例子中video.mp4有视频和音频，而audio.m4a只有音频。使用-map从video.mp4中选择视频，并从audio.m4a中选择音频：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -i audio.m4a -map 0:v -map 1:a -c copy -shortest output.mp4</span><br></pre></td></tr></table></figure>
+<p>> -map 0：v – 从输入0(第一个输入，即video.mp4)选择视频流。<br>> -map 1：a – 从输入1(第二个输入，即audio.m4a)选择音频流。</p>
+<h5 id="8-ffmpeg获取视频封面"><a href="#8-ffmpeg获取视频封面" class="headerlink" title="8.ffmpeg获取视频封面"></a>8.ffmpeg获取视频封面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg.exe -ss 00:00:01 -i spring.mp4 -vframes 1 bb.jpg</span><br></pre></td></tr></table></figure>
+<h5 id="9-java中执行cmd命令"><a href="#9-java中执行cmd命令" class="headerlink" title="9.java中执行cmd命令"></a>9.java中执行cmd命令</h5><p>创建一个List，把命令装载进去，注意不应存在空格，原命令假如有空格，需要分开一步一步add进list中</p>
+<p>ProcessBuilder<strong>构造函数</strong>接受的是<strong>字符串列表或数组</strong>，不接受空格分隔</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ffmpeg.exe -ss 00:00:01 -i spring.mp4 -vframes 1 bb.jpg</span></span><br><span class="line"></span><br><span class="line">		List&lt;String&gt; command = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">		command.add(ffmpegEXE);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 指定截取第1秒</span></span><br><span class="line">		command.add(<span class="string">"-ss"</span>);</span><br><span class="line">		command.add(<span class="string">"00:00:01"</span>);</span><br><span class="line">				</span><br><span class="line">		command.add(<span class="string">"-y"</span>);</span><br><span class="line">		command.add(<span class="string">"-i"</span>);</span><br><span class="line">		command.add(videoInputPath);</span><br><span class="line">		</span><br><span class="line">		command.add(<span class="string">"-vframes"</span>);</span><br><span class="line">		command.add(<span class="string">"1"</span>);</span><br><span class="line">		</span><br><span class="line">		command.add(coverOutputPath);</span><br></pre></td></tr></table></figure>
+<p>利用ProcesssBuilder执行cmd命令</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ProcessBuilder builder = <span class="keyword">new</span> ProcessBuilder(command);</span><br><span class="line">Process process = builder.start();</span><br><span class="line"></span><br><span class="line">InputStream errorStream = process.getErrorStream();</span><br><span class="line">InputStreamReader inputStreamReader = <span class="keyword">new</span> InputStreamReader(errorStream);</span><br><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(inputStreamReader);</span><br><span class="line"></span><br><span class="line">String line = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">while</span> ( (line = br.readLine()) != <span class="keyword">null</span> ) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (br != <span class="keyword">null</span>) &#123;</span><br><span class="line">	br.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (inputStreamReader != <span class="keyword">null</span>) &#123;</span><br><span class="line">	inputStreamReader.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (errorStream != <span class="keyword">null</span>) &#123;</span><br><span class="line">	errorStream.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="10-文件路径的斜线应该向左还是向右？"><a href="#10-文件路径的斜线应该向左还是向右？" class="headerlink" title="10.文件路径的斜线应该向左还是向右？"></a>10.文件路径的斜线应该向左还是向右？</h5><p>文件路径写成左斜杠和右斜杠均可，重要的是斜杠要写两个，作为转义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\\bbbb\\ccc\\aa.txt</span><br><span class="line">E://bbbb//ccc//aa.txt</span><br></pre></td></tr></table></figure>
+<h5 id="11-request-getHeader-无法获取请求参数"><a href="#11-request-getHeader-无法获取请求参数" class="headerlink" title="11.request.getHeader()无法获取请求参数"></a>11.request.getHeader()无法获取请求参数</h5><p>通过<strong>request.getHeader()</strong>来获取header{}里的参数</p>
+<p>通过<strong>request.getParamter();</strong>，</p>
+<p>我们存放的headerUserId,和headerUserToken都放在head里，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">wx.showLoading(&#123;</span><br><span class="line">    title: <span class="string">'请稍后...'</span>,</span><br><span class="line">&#125;)</span><br><span class="line">wx.request(&#123;</span><br><span class="line">    url: app.serverUrl + <span class="string">'/video/saveComment?fatherCommentId='</span> + fatherCommentId + <span class="string">"&amp;toUserId="</span> + toUserId,</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    header: &#123;</span><br><span class="line">        <span class="string">'content-type'</span>: <span class="string">'application/json'</span>, <span class="comment">// 默认值</span></span><br><span class="line">        <span class="string">'headerUserId'</span>: user.id,</span><br><span class="line">        <span class="string">'headerUserToken'</span>: user.userToken</span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        fromUserId: user.id,</span><br><span class="line">        videoId: me.data.videoInfo.id,</span><br><span class="line">        comment: content </span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">        <span class="comment">//console.log(res.data)</span></span><br><span class="line">        wx.hideLoading();</span><br><span class="line"></span><br><span class="line">        me.setData(&#123;</span><br><span class="line">            contentValue: <span class="string">""</span>,</span><br><span class="line">            commentsList: []</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        me.getCommentsList(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>request.getQueryString()获取url后的请求参数</p>
+<p>header存在可以减少地址拼接的长度，并且起到一定的保密作用</p>
+<h5 id="10，判断空值"><a href="#10，判断空值" class="headerlink" title="10，判断空值"></a>10，判断空值</h5><p><strong>null, isEmpty, size, undefined</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if(list==null&amp;&amp;!list.isEmpty()&amp;&amp;list.size()&gt;0)0</span><br></pre></td></tr></table></figure>
+<h5 id="12-自己写一个JSONResult数据返回类"><a href="#12-自己写一个JSONResult数据返回类" class="headerlink" title="12,自己写一个JSONResult数据返回类"></a>12,自己写一个JSONResult数据返回类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//三种相应信息</span></span><br><span class="line">	<span class="comment">// 响应业务状态</span></span><br><span class="line">    <span class="keyword">private</span> Integer status;</span><br><span class="line">     *				<span class="number">200</span>：表示成功</span><br><span class="line">     * 				<span class="number">500</span>：表示错误，错误信息在msg字段中</span><br><span class="line">     * 				<span class="number">501</span>：bean验证错误，不管多少个错误都以map形式返回</span><br><span class="line">     * 				<span class="number">502</span>：拦截器拦截到用户token出错</span><br><span class="line">     * 				<span class="number">555</span>：异常抛出信息</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 响应消息</span></span><br><span class="line">    <span class="keyword">private</span> String msg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 响应中的数据</span></span><br><span class="line">    <span class="keyword">private</span> Object data;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">dashanJSONResult</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">dashanJSONResult</span><span class="params">(Integer status, String msg, Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = status;</span><br><span class="line">        <span class="keyword">this</span>.msg = msg;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">dashanJSONResult</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.status = <span class="number">200</span>;</span><br><span class="line">        <span class="keyword">this</span>.msg = <span class="string">"OK"</span>;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意 这些方法应该都是static静态方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//200</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> dashanJSONResult <span class="title">ok</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> dashanJSONResult(data);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//200</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> dashanJSONResult <span class="title">ok</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> dashanJSONResult(<span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//500：表示错误，错误信息在msg字段中</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> dashanJSONResult <span class="title">errorMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> dashanJSONResult(<span class="number">500</span>, msg, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//501：bean验证错误，不管多少个错误都以map形式返回</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> dashanJSONResult <span class="title">errorMap</span><span class="params">(Object data)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> dashanJSONResult(<span class="number">501</span>, <span class="string">"error"</span>, data);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//502：拦截器拦截到用户token出错  </span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> dashanJSONResult <span class="title">errorTokenMsg</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> dashanJSONResult(<span class="number">502</span>, msg, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//555：异常抛出信息</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> dashanJSONResult <span class="title">errorException</span><span class="params">(String msg)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> dashanJSONResult(<span class="number">555</span>, msg, <span class="keyword">null</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="13，对字符串进行MD5加密"><a href="#13，对字符串进行MD5加密" class="headerlink" title="13，对字符串进行MD5加密"></a>13，对字符串进行MD5加密</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getMD5Str</span><span class="params">(String strValue)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	MessageDigest md5 = MessageDigest.getInstance(<span class="string">"MD5"</span>);</span><br><span class="line">	String newstr = Base64.encodeBase64String(md5.digest(strValue.getBytes()));</span><br><span class="line">	<span class="keyword">return</span> newstr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="14，StringRedisTemplate与RedisTemplate"><a href="#14，StringRedisTemplate与RedisTemplate" class="headerlink" title="14，StringRedisTemplate与RedisTemplate"></a>14，StringRedisTemplate与RedisTemplate</h5><p>RedisTemplate是一个泛型类，StringRedisTemplate继承于它，是它的一个子类，但是应用的范围却更窄了，这里StringRedisTemplate只可以操作&lt;String,String&gt;,类型，而他的父类，RedisTemplate操作的是&lt;Object,Object&gt;类型，一般情况，如果已知数据库里是&lt;String,String&gt;那么就去使用StringRedisTemplate,如果不知道类型，又懒得去类型转换，可以使用RedisTemplate</p>
+<h5 id="15，-Transactional-propagation-Propagation-REQUIRED"><a href="#15，-Transactional-propagation-Propagation-REQUIRED" class="headerlink" title="15，@Transactional(propagation= Propagation.REQUIRED)"></a>15，@Transactional(propagation= Propagation.REQUIRED)</h5><p>select语句时，在实现方法的impl上加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(propagation= Propagation.SUPPORTS)</span><br></pre></td></tr></table></figure>
+<p>具有update,insert,delete,操作时，使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Transactional(propagation= Propagation.REQUIRED)</span><br></pre></td></tr></table></figure>
+<p>16，解决不同系统下文件切割符“\”,“ /”的问题</p>
+<p>Windows下的路径分隔符（\）和linux下（/）是不一样的，在开发跨平台应用时，如果直接使用绝对路径会出现错误，使用File.separator方法可解决此问题，使用方法如下：</p>
+<p>路径：D:\path1\path2<br>代码：path = “D:” + File.separator + “path1” + File.separator + “path2”;</p>
+<h5 id="16，idea-中maven聚合工程中创建web子工程"><a href="#16，idea-中maven聚合工程中创建web子工程" class="headerlink" title="16，idea 中maven聚合工程中创建web子工程"></a>16，idea 中maven聚合工程中创建web子工程</h5><p>摘抄自<a href="https://cloud.tencent.com/developer/article/1081471" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1081471</a></p>
+<p>1.按照child1的创建方式我们继续向parent中添加一个child2. 2.这个时候创建的不管是child1还是child2都是普通的Java项目，而不是JavaWeb项目，在一个JavaWeb项目中，我们的模块可能分为commons-utils、dao、service、web等几个模块，这些模块中除了web模块是web项目结构，其他模块都是普通的Java项目，本例中我就假设child1为普通项目，child2为web项目，我们看看如何将child2改造为一个web项目。 3.创建好child2之后，右键单击，选择Open Module Settings，如下： </p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-1516773/9u81vv8n8r.jpeg?imageView2/2/w/1620" alt="img"></p>
+<p>4.在打开的页面中，先选择child2，然后点击左上角的+号，选择web，如下： </p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-1516773/aoch8wbkm3.jpeg?imageView2/2/w/1620" alt="img"></p>
+<p>5.在新打开的页面中，做如下操作： </p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-1516773/rw8gebieio.jpeg?imageView2/2/w/1620" alt="img"></p>
+<p>6.再修改web.xml文件的路径，如下;</p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-1516773/zf2n9hmcg4.jpeg?imageView2/2/w/1620" alt="img"></p>
+<p>OK ,至此，我们就将child2成功的改造成了一个web项目，此时我们的项目结构如下：</p>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-1516773/k92ld9yfqe.png?imageView2/2/w/1620" alt="img"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/12/easy/" rel="next" title="leetcode easy难度的一些算法">
+                <i class="fa fa-chevron-left"></i> leetcode easy难度的一些算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/17/netty/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">hengxiaoyudashan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#微信小程序"><span class="nav-number">1.</span> <span class="nav-text">微信小程序</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-app-json-pages加载的第一条是首页"><span class="nav-number">1.1.</span> <span class="nav-text">1.app.json/pages加载的第一条是首页</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-wx-navigateTo-与wx-redirectTo"><span class="nav-number">1.2.</span> <span class="nav-text">2.wx.navigateTo()与wx.redirectTo()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-弹出提示框"><span class="nav-number">1.3.</span> <span class="nav-text">3.弹出提示框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-为什么要加上请等待提示框？"><span class="nav-number">1.4.</span> <span class="nav-text">4.为什么要加上请等待提示框？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5，wx-if否定感叹号的位置"><span class="nav-number">1.5.</span> <span class="nav-text">5，wx:if否定感叹号的位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6，在wxml中为组件中添加你想用的数据并在js中拿出来"><span class="nav-number">1.6.</span> <span class="nav-text">6，在wxml中为组件中添加你想用的数据并在js中拿出来</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7，JSON整体的数据传送"><span class="nav-number">1.7.</span> <span class="nav-text">7，JSON整体的数据传送</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8，-RequestBody对应data里的数据"><span class="nav-number">1.8.</span> <span class="nav-text">8，@RequestBody对应data里的数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-微信授权登陆"><span class="nav-number">1.9.</span> <span class="nav-text">9.微信授权登陆</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SpringBoot"><span class="nav-number">2.</span> <span class="nav-text">SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-以对象的方式去操作sql"><span class="nav-number">2.1.</span> <span class="nav-text">1.以对象的方式去操作sql</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Maven的聚合开发"><span class="nav-number">2.2.</span> <span class="nav-text">2.Maven的聚合开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-为什么要bean赋值转换？PO-gt-BO-gt-VO"><span class="nav-number">2.3.</span> <span class="nav-text">3.为什么要bean赋值转换？PO-&gt;BO-&gt;VO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Swagger2来构建API文档"><span class="nav-number">2.4.</span> <span class="nav-text">4.Swagger2来构建API文档</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-给定了路径，没有父文件，自动创建父文件"><span class="nav-number">2.5.</span> <span class="nav-text">5.给定了路径，没有父文件，自动创建父文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-文件流的传送"><span class="nav-number">2.6.</span> <span class="nav-text">6.文件流的传送</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-ffmpeg合并视频和音频"><span class="nav-number">2.7.</span> <span class="nav-text">7.ffmpeg合并视频和音频</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-ffmpeg获取视频封面"><span class="nav-number">2.8.</span> <span class="nav-text">8.ffmpeg获取视频封面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-java中执行cmd命令"><span class="nav-number">2.9.</span> <span class="nav-text">9.java中执行cmd命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-文件路径的斜线应该向左还是向右？"><span class="nav-number">2.10.</span> <span class="nav-text">10.文件路径的斜线应该向左还是向右？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-request-getHeader-无法获取请求参数"><span class="nav-number">2.11.</span> <span class="nav-text">11.request.getHeader()无法获取请求参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10，判断空值"><span class="nav-number">2.12.</span> <span class="nav-text">10，判断空值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-自己写一个JSONResult数据返回类"><span class="nav-number">2.13.</span> <span class="nav-text">12,自己写一个JSONResult数据返回类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13，对字符串进行MD5加密"><span class="nav-number">2.14.</span> <span class="nav-text">13，对字符串进行MD5加密</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14，StringRedisTemplate与RedisTemplate"><span class="nav-number">2.15.</span> <span class="nav-text">14，StringRedisTemplate与RedisTemplate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15，-Transactional-propagation-Propagation-REQUIRED"><span class="nav-number">2.16.</span> <span class="nav-text">15，@Transactional(propagation= Propagation.REQUIRED)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16，idea-中maven聚合工程中创建web子工程"><span class="nav-number">2.17.</span> <span class="nav-text">16，idea 中maven聚合工程中创建web子工程</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hengxiaoyudashan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
