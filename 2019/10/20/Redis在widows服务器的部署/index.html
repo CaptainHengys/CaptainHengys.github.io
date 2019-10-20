@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Redis,服务器,">
 
 
 
@@ -79,22 +79,23 @@
 
 
 
-<meta name="description" content="Redis在widows服务器的部署一，在服务器安全组配置中要加入Redis的6379端口 二，解压安装包，启动redis-server.exe，启动redis-cli.exe 出现上图证明成功了 三，如果全都成功了，但是本地就是连接不到服务器的Redis，先试一试​    这个命令看看能不能通 1telnet ip地址 端口 出现下列情况 就把cmd 中敲入的 1redis-server.exe">
+<meta name="description" content="Redis在widows服务器的部署一，在服务器安全组配置中要加入Redis的6379端口 二，解压安装包，启动redis-server.exe，启动redis-cli.exe">
+<meta name="keywords" content="Redis,服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录我的代码生活">
+<meta property="og:title" content="Redis在widows服务器的部署">
 <meta property="og:url" content="http://yoursite.com/2019/10/20/Redis在widows服务器的部署/index.html">
 <meta property="og:site_name" content="记录我的代码生活">
-<meta property="og:description" content="Redis在widows服务器的部署一，在服务器安全组配置中要加入Redis的6379端口 二，解压安装包，启动redis-server.exe，启动redis-cli.exe 出现上图证明成功了 三，如果全都成功了，但是本地就是连接不到服务器的Redis，先试一试​    这个命令看看能不能通 1telnet ip地址 端口 出现下列情况 就把cmd 中敲入的 1redis-server.exe">
+<meta property="og:description" content="Redis在widows服务器的部署一，在服务器安全组配置中要加入Redis的6379端口 二，解压安装包，启动redis-server.exe，启动redis-cli.exe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="e:/hexo/source/_posts/Redis6379端口.png">
-<meta property="og:image" content="e:/hexo/source/_posts/Redis-server.png">
-<meta property="og:image" content="e:/hexo/source/_posts/Redis-protect.png">
-<meta property="og:image" content="e:/hexo/source/_posts/Redis加入服务.png">
-<meta property="og:updated_time" content="2019-10-20T02:56:34.878Z">
+<meta property="og:image" content="e:/hexo/source/images/Redis6379端口.png">
+<meta property="og:image" content="e:/hexo/source/images/Redis-server.png">
+<meta property="og:image" content="e:/hexo/source/images/Redis-protect.png">
+<meta property="og:image" content="e:/hexo/source/images/Redis加入服务.png">
+<meta property="og:updated_time" content="2019-10-20T08:09:41.853Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记录我的代码生活">
-<meta name="twitter:description" content="Redis在widows服务器的部署一，在服务器安全组配置中要加入Redis的6379端口 二，解压安装包，启动redis-server.exe，启动redis-cli.exe 出现上图证明成功了 三，如果全都成功了，但是本地就是连接不到服务器的Redis，先试一试​    这个命令看看能不能通 1telnet ip地址 端口 出现下列情况 就把cmd 中敲入的 1redis-server.exe">
-<meta name="twitter:image" content="e:/hexo/source/_posts/Redis6379端口.png">
+<meta name="twitter:title" content="Redis在widows服务器的部署">
+<meta name="twitter:description" content="Redis在widows服务器的部署一，在服务器安全组配置中要加入Redis的6379端口 二，解压安装包，启动redis-server.exe，启动redis-cli.exe">
+<meta name="twitter:image" content="e:/hexo/source/images/Redis6379端口.png">
 
 
 
@@ -130,7 +131,7 @@
 
 
 
-  <title> | 记录我的代码生活</title>
+  <title>Redis在widows服务器的部署 | 记录我的代码生活</title>
   
 
 
@@ -309,7 +310,7 @@ function setSidebarMarginTop (headerOffset) {
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Redis在widows服务器的部署</h1>
         
 
         <div class="post-meta">
@@ -321,7 +322,7 @@ function setSidebarMarginTop (headerOffset) {
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T10:53:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T10:18:59+08:00">
                 2019-10-20
               </time>
             
@@ -331,6 +332,28 @@ function setSidebarMarginTop (headerOffset) {
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -390,18 +413,19 @@ function setSidebarMarginTop (headerOffset) {
       
 
       
-        <h3 id="Redis在widows服务器的部署"><a href="#Redis在widows服务器的部署" class="headerlink" title="Redis在widows服务器的部署"></a>Redis在widows服务器的部署</h3><h4 id="一，在服务器安全组配置中要加入Redis的6379端口"><a href="#一，在服务器安全组配置中要加入Redis的6379端口" class="headerlink" title="一，在服务器安全组配置中要加入Redis的6379端口"></a>一，在服务器安全组配置中要加入Redis的6379端口</h4><p><img src="E:\hexo\source\_posts\Redis6379端口.png" alt="Redis6379端口"></p>
-<h4 id="二，解压安装包，启动redis-server-exe，启动redis-cli-exe"><a href="#二，解压安装包，启动redis-server-exe，启动redis-cli-exe" class="headerlink" title="二，解压安装包，启动redis-server.exe，启动redis-cli.exe"></a>二，解压安装包，启动redis-server.exe，启动redis-cli.exe</h4><p><img src="E:\hexo\source\_posts\Redis-server.png" alt></p>
+        <h3 id="Redis在widows服务器的部署"><a href="#Redis在widows服务器的部署" class="headerlink" title="Redis在widows服务器的部署"></a>Redis在widows服务器的部署</h3><h4 id="一，在服务器安全组配置中要加入Redis的6379端口"><a href="#一，在服务器安全组配置中要加入Redis的6379端口" class="headerlink" title="一，在服务器安全组配置中要加入Redis的6379端口"></a>一，在服务器安全组配置中要加入Redis的6379端口</h4><p><img src="E:\hexo\source\images\Redis6379端口.png" alt="Redis6379端口"></p>
+<h4 id="二，解压安装包，启动redis-server-exe，启动redis-cli-exe"><a href="#二，解压安装包，启动redis-server-exe，启动redis-cli-exe" class="headerlink" title="二，解压安装包，启动redis-server.exe，启动redis-cli.exe"></a>二，解压安装包，启动redis-server.exe，启动redis-cli.exe</h4><a id="more"></a>
+<p><img src="E:\hexo\source\images\Redis-server.png" alt></p>
 <p>出现上图证明成功了</p>
 <h4 id="三，如果全都成功了，但是本地就是连接不到服务器的Redis，先试一试"><a href="#三，如果全都成功了，但是本地就是连接不到服务器的Redis，先试一试" class="headerlink" title="三，如果全都成功了，但是本地就是连接不到服务器的Redis，先试一试"></a>三，如果全都成功了，但是本地就是连接不到服务器的Redis，先试一试</h4><p>​    这个命令看看能不能通</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet ip地址 端口</span><br></pre></td></tr></table></figure>
-<p>出现下列情况<img src="E:\hexo\source\_posts\Redis-protect.png" alt></p>
+<p>出现下列情况<img src="E:\hexo\source\images\Redis-protect.png" alt></p>
 <p>就把cmd 中敲入的</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server.exe</span><br></pre></td></tr></table></figure>
 <p>更改为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server.exe --protected-mode no</span><br></pre></td></tr></table></figure>
 <h4 id="四，Redis加入服务"><a href="#四，Redis加入服务" class="headerlink" title="四，Redis加入服务"></a>四，Redis加入服务</h4><p>如果不加入服务，服务器关闭redis-server.exe那么redis就关闭了，所以这里把redis加入windows中的服务中，即使关闭了页面，redis也不会停止运行</p>
-<p><img src="E:\hexo\source\_posts\Redis加入服务.png" alt="Redis加入服务"></p>
+<p><img src="E:\hexo\source\images\Redis加入服务.png" alt="Redis加入服务"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server.exe --service-insatall redis.windows.conf --loglevel verbose</span><br></pre></td></tr></table></figure>
 <p>如果还是出现 </p>
 <p><em>Cannot</em> <em>get</em> <em>Jedis</em> <em>connection;</em> <em>nested</em> <em>exception</em> <em>is</em> <em>redis.clients.jedis.exceptions</em>.<em>JedisException</em>: Could not <em>get</em> a resource from the pool] with… </p>
@@ -421,6 +445,16 @@ function setSidebarMarginTop (headerOffset) {
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i>
+ Redis</a>
+          
+            <a href="/tags/服务器/" rel="tag"><i class="fa fa-tag"></i>
+ 服务器</a>
+          
+        </div>
+      
 
       
       
@@ -430,8 +464,8 @@ function setSidebarMarginTop (headerOffset) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/20/mysql命令行导入导出数据库/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/10/16/netty/" rel="next" title="netty">
+                <i class="fa fa-chevron-left"></i> netty
               </a>
             
           </div>
@@ -439,10 +473,6 @@ function setSidebarMarginTop (headerOffset) {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/20/SpringBoot 打成可运行的jar包/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -530,7 +560,7 @@ function setSidebarMarginTop (headerOffset) {
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -541,7 +571,7 @@ function setSidebarMarginTop (headerOffset) {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
